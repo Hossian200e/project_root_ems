@@ -1,20 +1,27 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./pages/auth/login"; // lowercase matches your file
-import AdminDashboard from "./pages/dashboard/AdminDashboard";
-import StudentDashboard from "./pages/dashboard/StudentDashboard";
-import TeacherDashboard from "./pages/dashboard/TeacherDashboard";
+
+import Login from "./admin/auth/login";
+import AdminLayout from "./admin/layoutPage/layout/AdminLayout";
+
+// Dashboard Pages
+import AdminDashboard from "./admin/dashboard/AdminDashboard";
+import StudentDashboard from "./admin/dashboard/StudentDashboard";
+import TeacherDashboard from "./admin/dashboard/TeacherDashboard";
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Default route */}
+        {/* Login → No Layout */}
         <Route path="/" element={<Login />} />
-        {/* Dashboards */}
-        <Route path="/AdminDashboard" element={<AdminDashboard />} />
-        <Route path="/StudentDashboard" element={<StudentDashboard />} />
-        <Route path="/TeacherDashboard" element={<TeacherDashboard />} />
+
+        {/* Pages Inside Admin Layout */}
+        <Route element={<AdminLayout />}>
+          <Route path="/AdminDashboard" element={<AdminDashboard />} />
+          <Route path="/StudentDashboard" element={<StudentDashboard />} />
+          <Route path="/TeacherDashboard" element={<TeacherDashboard />} />
+        </Route>
       </Routes>
     </Router>
   );
