@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+// Auth
 import Login from "./auth/login";
+
+// Layouts
 import AdminLayout from "./admin/layoutPage/layout/AdminLayout";
+import StudentLayout from "./student/layoutPage/layout/StudentLayout";
+import TeacherLayout from "./teacher/layoutPage/layout/TeacherLayout";
 
 // Dashboard Pages
 import AdminDashboard from "./admin/dashboard/AdminDashboard";
-import StudentDashboard from "./admin/dashboard/StudentDashboard";
-import TeacherDashboard from "./admin/dashboard/TeacherDashboard";
+import StudentDashboard from "./student/dashboard/StudentDashboard";
+import TeacherDashboard from "./teacher/dashboard/TeacherDashboard";
 
 function App() {
   // 🌙 Light/Dark Mode State
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") || "light"
-  );
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   // Toggle Theme
   const toggleTheme = () => {
@@ -33,17 +36,24 @@ function App() {
         {/* Login page without layout */}
         <Route path="/" element={<Login />} />
 
-        {/* Admin area + theme injection */}
+        {/* Admin routes */}
         <Route
-          element={
-            <AdminLayout
-              theme={theme}
-              toggleTheme={toggleTheme}
-            />
-          }
+          element={<AdminLayout theme={theme} toggleTheme={toggleTheme} />}
         >
           <Route path="/AdminDashboard" element={<AdminDashboard />} />
+        </Route>
+
+        {/* Student routes */}
+        <Route
+          element={<StudentLayout theme={theme} toggleTheme={toggleTheme} />}
+        >
           <Route path="/StudentDashboard" element={<StudentDashboard />} />
+        </Route>
+
+        {/* Teacher routes */}
+        <Route
+          element={<TeacherLayout theme={theme} toggleTheme={toggleTheme} />}
+        >
           <Route path="/TeacherDashboard" element={<TeacherDashboard />} />
         </Route>
       </Routes>
