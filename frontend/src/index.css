@@ -1,3 +1,33 @@
+/* Smooth transition */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light Mode */
+body[data-theme="light"] {
+  --bg-color: #ffffff;
+  --sidebar-bg: #f4f6f9;
+  --text-color: #222;
+  --menu-hover: #e1e1e1;
+  --border-color: #ddd;
+}
+
+/* Dark Mode */
+body[data-theme="dark"] {
+  --bg-color: #1e1e1e;
+  --sidebar-bg: #121212;
+  --text-color: #e8e8e8;
+  --menu-hover: #333;
+  --border-color: #444;
+}
+
+/* Apply to full page */
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

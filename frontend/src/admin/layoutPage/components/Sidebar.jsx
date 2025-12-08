@@ -591,7 +591,7 @@ const Sidebar = () => {
 
       {/* Footer */}
       <div className="sidebar-footer">
-        <p>Powered By: <b>AdvanceEdu Solution</b> ©2025</p>
+        <p>Powered By: <b>ABC IT</b> ©2025</p>
       </div>
     </aside>
   );

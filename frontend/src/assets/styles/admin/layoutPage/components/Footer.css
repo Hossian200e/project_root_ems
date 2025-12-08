@@ -1,0 +1,18 @@
+/* === FOOTER === */
+.footer {
+  width: 100%;
+  padding: 12px 15px;
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  text-align: center;
+  font-size: 14px;
+  border-top: 1px solid var(--border);
+  font-family: "Poppins", sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Sticky bottom for full layout */
+.footer {
+  position: relative;
+  bottom: 0;
+}

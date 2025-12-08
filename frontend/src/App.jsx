@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Login from "./auth/login";
@@ -10,14 +10,38 @@ import StudentDashboard from "./admin/dashboard/StudentDashboard";
 import TeacherDashboard from "./admin/dashboard/TeacherDashboard";
 
 function App() {
+  // 🌙 Light/Dark Mode State
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") || "light"
+  );
+
+  // Toggle Theme
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
+
+  // Apply theme to <html>
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
   return (
     <Router>
       <Routes>
-        {/* Login → No Layout */}
+        {/* Login page without layout */}
         <Route path="/" element={<Login />} />
 
-        {/* Pages Inside Admin Layout */}
-        <Route element={<AdminLayout />}>
+        {/* Admin area + theme injection */}
+        <Route
+          element={
+            <AdminLayout
+              theme={theme}
+              toggleTheme={toggleTheme}
+            />
+          }
+        >
           <Route path="/AdminDashboard" element={<AdminDashboard />} />
           <Route path="/StudentDashboard" element={<StudentDashboard />} />
           <Route path="/TeacherDashboard" element={<TeacherDashboard />} />

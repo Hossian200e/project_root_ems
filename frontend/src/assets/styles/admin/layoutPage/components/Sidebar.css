@@ -1,98 +1,68 @@
+/* === VARIABLES FOR LIGHT/DARK MODE === */
+:root {
+  --sidebar-bg: #ffffff;
+  --text: #333;
+  --border: #e5e7eb;
+  --bg: #f9f9f9;
+}
+
 /* === SIDEBAR CONTAINER === */
 .sidebar {
   width: 250px;
-  background: #fff;
+  background: var(--sidebar-bg);
   height: 100vh;
-  border-right: 1px solid #ddd;
+  border-right: 1px solid var(--border);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-}
-/* === REMOVE UNDERLINE FROM ALL LINKS IN SIDEBAR === */
-.sidebar a {
-  text-decoration: none;
-  color: #333; /* keep or adjust your preferred color */
+  font-family: "Poppins", sans-serif;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Optional: underline on hover (if you want highlight effect) */
+/* === LINKS === */
+.sidebar a {
+  text-decoration: none;
+  color: var(--text);
+  transition: color 0.3s ease;
+}
 .sidebar a:hover {
-  text-decoration: none; /* keep none if you never want underline */
-  color: #007bff; /* optional hover color */
+  text-decoration: none;
+  color: #007bff;
 }
 
 /* === HEADER === */
 .sidebar-header {
   padding: 15px;
   text-align: center;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.3s ease;
 }
-
 .sidebar-header img {
   width: 55px;
   height: 55px;
   margin-bottom: 8px;
 }
-
 .sidebar-header h3 {
   font-size: 14px;
-  color: #333;
+  color: var(--text);
   margin: 0;
   line-height: 1.4;
+  transition: color 0.3s ease;
 }
 
-/* === MENU SCROLL AREA === */
-
+/* === MENU AREA === */
 nav {
   flex: 1;
   overflow-y: auto;
   padding-bottom: 10px;
 }
-
-
-
-
-/* Dropdown & Dashboard Common Style */
-
-
-
-
-/* === DASHBOARD (non-dropdown menu) === */
-.sidebar nav ul li:not(.dropdown) {
-  padding: 10px 15px;
-  display: flex;
-  align-items: center;
-  gap: 8px;              /* 🔹 space between icon and text */
-  color: #333;
-  cursor: pointer;
-}
-
-.sidebar nav ul li:not(.dropdown):hover {
-  background: #f0f4ff;
-  color: #007bff;
-}
-
-.sidebar nav ul li:not(.dropdown) i {
-  color: #666;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/* Scrollbar Style */
 nav::-webkit-scrollbar {
   width: 3px;
 }
 nav::-webkit-scrollbar-thumb {
   background: #ccc;
   border-radius: 4px;
+  transition: background 0.3s ease;
 }
 
 /* === SECTION HEADING === */
@@ -101,13 +71,14 @@ nav::-webkit-scrollbar-thumb {
   font-size: 13px;
   color: #777;
   padding: 10px 15px;
-  border-bottom: 1px solid #eee;
-  background: #fafafa;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
-/* === MENU ITEMS === */
+/* === MENU LIST === */
 nav ul {
   list-style: none;
   margin: 0;
@@ -116,60 +87,108 @@ nav ul {
 
 nav li {
   font-size: 14px;
-  color: #333;
+  color: var(--text);
   transition: all 0.2s ease;
 }
 
+/* === SINGLE MENU (no dropdown) === */
+.sidebar nav ul li:not(.dropdown) {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.sidebar nav ul li:not(.dropdown):hover {
+  background: #f0f4ff;
+  color: #007bff;
+}
+.sidebar nav ul li:not(.dropdown) i {
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+/* === DROPDOWN LABEL === */
 .dropdown-label {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* 🔹 This fixes left alignment */
+  justify-content: flex-start;
   padding: 10px 15px;
   cursor: pointer;
-}
-
-.dropdown-label .arrow {
-  margin-left: auto; /* 🔹 Keeps arrow to the right */
-}
-
-
-.dropdown-label:hover {
-  background: #f0f4ff;
-  color: #007bff;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .dropdown-label i {
   margin-right: 8px;
   color: #666;
+  transition: color 0.3s ease;
 }
 
-/* === ACTIVE STATE === */
+.dropdown-label .arrow {
+  margin-left: auto;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate arrow */
+.dropdown.open > .dropdown-label .arrow i {
+  transform: rotate(90deg);
+}
+
+/* Hover & Active state */
+.dropdown-label:hover {
+  background: #f0f4ff;
+  color: #007bff;
+}
 .dropdown.open > .dropdown-label {
   background: #e9f0ff;
   color: #007bff;
   font-weight: 500;
 }
 
-/* === SUBMENU === */
+/* === SUBMENU (smooth slide + right shift) === */
 .submenu {
-  background: #f9f9f9;
-  padding: 1 !important;            /* remove all inner padding */
-  margin: 0 !important;             /* remove top/bottom gaps */
-  border: none !important;          /* remove left or top borders */
+  background: var(--bg);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding-left 0.3s ease, background 0.3s ease;
+  margin: 0;
+  padding-left: 0px;
 }
 
+.dropdown.open > .submenu {
+  max-height: 1000px;
+  padding-left: 10px;
+}
+
+/* Submenu items with bullet dot */
 .submenu li {
-  margin: 0 !important;             /* no gap between submenu items */
+  margin: 0 !important;
   padding: 0 !important;
+  position: relative;
 }
 
 .submenu li a {
   display: block;
-  padding: 8px 15px;                /* uniform spacing for all items */
-  color: #333;
-  text-decoration: none;
-  font-size: 15px;
-  transition: all 0.2s;
+  padding: 8px 15px 8px 25px;
+  color: var(--text);
+  font-size: 14px;
+  position: relative;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+.submenu li a::before {
+  content: "•";
+  font-size: 12px;
+  position: absolute;
+  left: 12px;
+  color: #007bff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.dropdown.open .submenu li a::before {
+  opacity: 1;
 }
 
 .submenu li a:hover {
@@ -177,31 +196,59 @@ nav li {
   background: #eef5ff;
 }
 
+/* === SUB-SUBMENU === */
+.sub-submenu {
+  background: #efefef;
+  padding-left: 15px;
+  transition: background 0.3s ease;
+}
+
 /* === FOOTER === */
 .sidebar-footer {
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--border);
   padding: 12px;
   text-align: center;
   font-size: 13px;
   color: #777;
-  background: #fafafa;
+  background: var(--bg);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
-
 .sidebar-footer b {
   color: #007bff;
+  transition: color 0.3s ease;
 }
 
-
-/* Sidebar Footer */
-.sidebar-footer {
-  padding: 12px;
-  text-align: center;
-  border-top: 1px solid #eee;
-  font-size: 13px;
-  color: #777;
-  background: #fafafa;
+/* === DARK MODE === */
+body.dark-mode {
+  --sidebar-bg: #1e1e1e;
+  --text: #eee;
+  --border: #333;
+  --bg: #2c2c2c;
 }
 
-.sidebar-footer b {
-  color: #007bff;
+body.dark-mode .sidebar-header h3,
+body.dark-mode nav li,
+body.dark-mode .submenu li a,
+body.dark-mode .menu-heading,
+body.dark-mode .sub-submenu,
+body.dark-mode .sidebar-footer {
+  color: var(--text);
+  background: var(--bg);
+  border-color: var(--border);
+}
+
+body.dark-mode nav li:not(.dropdown):hover,
+body.dark-mode .dropdown-label:hover,
+body.dark-mode .dropdown.open > .dropdown-label {
+  background: #333;
+  color: #00bcd4;
+}
+
+body.dark-mode .submenu li a:hover {
+  background: #444;
+  color: #00bcd4;
+}
+
+body.dark-mode nav::-webkit-scrollbar-thumb {
+  background: #555;
 }
