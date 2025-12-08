@@ -1,0 +1,207 @@
+/* === SIDEBAR CONTAINER === */
+.sidebar {
+  width: 250px;
+  background: #fff;
+  height: 100vh;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+/* === REMOVE UNDERLINE FROM ALL LINKS IN SIDEBAR === */
+.sidebar a {
+  text-decoration: none;
+  color: #333; /* keep or adjust your preferred color */
+}
+
+/* Optional: underline on hover (if you want highlight effect) */
+.sidebar a:hover {
+  text-decoration: none; /* keep none if you never want underline */
+  color: #007bff; /* optional hover color */
+}
+
+/* === HEADER === */
+.sidebar-header {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar-header img {
+  width: 55px;
+  height: 55px;
+  margin-bottom: 8px;
+}
+
+.sidebar-header h3 {
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* === MENU SCROLL AREA === */
+
+nav {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 10px;
+}
+
+
+
+
+/* Dropdown & Dashboard Common Style */
+
+
+
+
+/* === DASHBOARD (non-dropdown menu) === */
+.sidebar nav ul li:not(.dropdown) {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;              /* 🔹 space between icon and text */
+  color: #333;
+  cursor: pointer;
+}
+
+.sidebar nav ul li:not(.dropdown):hover {
+  background: #f0f4ff;
+  color: #007bff;
+}
+
+.sidebar nav ul li:not(.dropdown) i {
+  color: #666;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Scrollbar Style */
+nav::-webkit-scrollbar {
+  width: 3px;
+}
+nav::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+/* === SECTION HEADING === */
+.menu-heading {
+  font-weight: bold;
+  font-size: 13px;
+  color: #777;
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  background: #fafafa;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* === MENU ITEMS === */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  font-size: 14px;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.dropdown-label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* 🔹 This fixes left alignment */
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.dropdown-label .arrow {
+  margin-left: auto; /* 🔹 Keeps arrow to the right */
+}
+
+
+.dropdown-label:hover {
+  background: #f0f4ff;
+  color: #007bff;
+}
+
+.dropdown-label i {
+  margin-right: 8px;
+  color: #666;
+}
+
+/* === ACTIVE STATE === */
+.dropdown.open > .dropdown-label {
+  background: #e9f0ff;
+  color: #007bff;
+  font-weight: 500;
+}
+
+/* === SUBMENU === */
+.submenu {
+  background: #f9f9f9;
+  padding: 1 !important;            /* remove all inner padding */
+  margin: 0 !important;             /* remove top/bottom gaps */
+  border: none !important;          /* remove left or top borders */
+}
+
+.submenu li {
+  margin: 0 !important;             /* no gap between submenu items */
+  padding: 0 !important;
+}
+
+.submenu li a {
+  display: block;
+  padding: 8px 15px;                /* uniform spacing for all items */
+  color: #333;
+  text-decoration: none;
+  font-size: 15px;
+  transition: all 0.2s;
+}
+
+.submenu li a:hover {
+  color: #007bff;
+  background: #eef5ff;
+}
+
+/* === FOOTER === */
+.sidebar-footer {
+  border-top: 1px solid #eee;
+  padding: 12px;
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+  background: #fafafa;
+}
+
+.sidebar-footer b {
+  color: #007bff;
+}
+
+
+/* Sidebar Footer */
+.sidebar-footer {
+  padding: 12px;
+  text-align: center;
+  border-top: 1px solid #eee;
+  font-size: 13px;
+  color: #777;
+  background: #fafafa;
+}
+
+.sidebar-footer b {
+  color: #007bff;
+}
