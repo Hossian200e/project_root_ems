@@ -1,0 +1,164 @@
+/* ===== THEME VARIABLES ===== */
+:root {
+  /* Light mode colors */
+  --bg-color: #f5f7fa;
+  --card-bg: white;
+  --text-color: #333;
+  --text-muted: #777;
+  --number-color: #050505;
+  --breadcrumb-color: #555;
+  --divider-color: #eee;
+  --card-shadow: rgba(0,0,0,0.1);
+  --card-shadow-hover: rgba(0,0,0,0.15);
+}
+
+/* Dark mode overrides */
+body.dark-mode, .dark-mode .main-content {
+  --bg-color: #121212;
+  --card-bg: #1e1e1e;
+  --text-color: #eee;
+  --text-muted: #bbb;
+  --number-color: #4e9cff;
+  --breadcrumb-color: #ddd;
+  --divider-color: #333;
+  --card-shadow: rgba(0,0,0,0.5);
+  --card-shadow-hover: rgba(0,0,0,0.7);
+}
+
+/* ===== Main Content ===== */
+.main-content {
+  background: var(--bg-color);
+  font-family: "Poppins", sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ===== Breadcrumb ===== */
+.breadcrumb {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: var(--breadcrumb-color);
+  transition: color 0.3s ease;
+}
+
+/* ===== Cards Container ===== */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* ===== Individual Card ===== */
+.card {
+  width: 450px;       
+  height: auto; /* allow content to expand */    
+  min-height: 160px; /* optional */
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px var(--card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease, color 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px var(--card-shadow-hover);
+}
+
+/* ===== Card Header ===== */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/* ===== Card Number ===== */
+.number {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: var(--number-color);
+  text-align: left;
+}
+
+/* ===== Divider Line ===== */
+.card-divider {
+  border: none;
+  height: 1px;
+  background: var(--divider-color);
+  margin: 8px 0 6px 0;
+}
+
+/* ===== Card Description ===== */
+.card-description {
+  font-size: 14px;
+  color: var(--text-muted);
+  text-align: left;
+}
+
+
+/* ===== Attendance Counts Styling ===== */
+.attendance-counts {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.attendance-counts p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+.attendance-counts-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.attendance-counts-column p {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* space between icon and text */
+  margin: 2px 0;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Color-coded attendance */
+.attendance-counts-column .present {
+  color: green; /* Present → Green */
+}
+
+.attendance-counts-column .absent {
+  color: red; /* Absent → Red */
+}
+
+.attendance-counts-column .late {
+  color: orange; /* Late → Orange */
+}
+
+.attendance-counts-column .leave {
+  color: blue; /* Leave → Blue */
+}
