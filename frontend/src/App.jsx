@@ -14,6 +14,11 @@ import AdminDashboard from "./admin/dashboard/AdminDashboard";
 import StudentDashboard from "./student/dashboard/StudentDashboard";
 import TeacherDashboard from "./teacher/dashboard/TeacherDashboard";
 
+
+//Admin Page.............
+import UserGroupList from "./admin/userManagement/UserGroupList";
+
+
 function App() {
   // 🌙 Light/Dark Mode State
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -41,6 +46,7 @@ function App() {
           element={<AdminLayout theme={theme} toggleTheme={toggleTheme} />}
         >
           <Route path="/AdminDashboard" element={<AdminDashboard />} />
+           <Route path="/UserGroupList" element={<UserGroupList />} />
         </Route>
 
         {/* Student routes */}

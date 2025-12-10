@@ -45,7 +45,7 @@ const Sidebar = () => {
             </div>
             {activeMenu === "user" && (
               <ul className="submenu">
-                <li><a href="#">User Group List</a></li>
+                <li><Link to="/UserGroupList" className="menu-link">User Group List</Link></li>
                 <li><a href="#">User Group Role Management</a></li>
               </ul>
             )}
@@ -67,7 +67,7 @@ const Sidebar = () => {
 
           {/* SL 3 → Dashboard */}
           <li>
-           <Link to="/Dashboard" className="menu-link"> 
+           <Link to="/AdminDashboard" className="menu-link"> 
            <i className="fa fa-home" /> Dashboard
            </Link>
          </li>

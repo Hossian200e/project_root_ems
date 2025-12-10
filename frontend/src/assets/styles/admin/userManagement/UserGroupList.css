@@ -1,0 +1,156 @@
+/* ================================
+   USER GROUP MANAGEMENT
+================================ */
+
+/* Page Wrapper */
+.user-group-page {
+  background: var(--bg-color);
+  padding: 20px;
+  border-radius: 12px;
+  font-family: "Poppins", sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Header */
+.user-group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.user-group-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* Add Button */
+.btn-add {
+  background: #1a73e8;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.btn-add:hover {
+  background: #1558c0;
+}
+
+/* ================================
+   TABLE
+================================ */
+.table-wrapper {
+  overflow-x: auto;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px var(--card-shadow);
+}
+
+/* Table */
+.user-group-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Table Head */
+.user-group-table thead th {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--divider-color);
+}
+
+/* Table Body */
+.user-group-table tbody td {
+  padding: 12px;
+  font-size: 14px;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--divider-color);
+  transition: background 0.2s ease;
+}
+
+.user-group-table tbody tr:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* Dark mode hover fix */
+body.dark-mode .user-group-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Group Name */
+.group-name {
+  font-weight: 500;
+}
+
+/* ================================
+   STATUS BADGES
+================================ */
+.status {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+/* Active */
+.status-active {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+}
+
+/* Inactive */
+.status-inactive {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+/* ================================
+   ACTION BUTTONS
+================================ */
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+.actions .btn {
+  border: none;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.actions .btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+/* View */
+.actions .view {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+}
+
+/* Edit */
+.actions .edit {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+
+/* Delete */
+.actions .delete {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
