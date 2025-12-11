@@ -46,7 +46,7 @@ const Sidebar = () => {
             {activeMenu === "user" && (
               <ul className="submenu">
                 <li><Link to="/UserGroupList" className="menu-link">User Group List</Link></li>
-                <li><a href="#">User Group Role Management</a></li>
+                <li><Link to="/UserRoleGroupManagement" className="menu-link">User Role Group Management</Link></li>
               </ul>
             )}
           </li>

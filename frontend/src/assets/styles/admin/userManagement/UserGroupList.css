@@ -28,10 +28,8 @@
 
 /* Page Base */
 .user-group-page {
-  padding: 25px;
   background: var(--bg);
   color: var(--text);
-  min-height: 100vh;
 }
 
 /* Header */

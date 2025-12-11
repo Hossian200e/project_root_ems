@@ -64,7 +64,10 @@ export default function UserGroupList() {
   return (
     <div className="user-group-page">
       <div className="user-group-header">
-        <h2>User Group Management</h2>
+        <div className="breadcrumb">
+        <a href="#">Dashboard</a> <span>›</span>
+        User Management
+        </div>
         <button className="btn-add" onClick={handleAddGroup}>+ Add Group</button>
       </div>
 

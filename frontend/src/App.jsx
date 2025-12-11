@@ -17,6 +17,7 @@ import TeacherDashboard from "./teacher/dashboard/TeacherDashboard";
 
 //Admin Page.............
 import UserGroupList from "./admin/userManagement/UserGroupList";
+import UserRoleGroupManagement from "./admin/userManagement/UserRoleGroupManagement";
 
 
 function App() {
@@ -46,7 +47,8 @@ function App() {
           element={<AdminLayout theme={theme} toggleTheme={toggleTheme} />}
         >
           <Route path="/AdminDashboard" element={<AdminDashboard />} />
-           <Route path="/UserGroupList" element={<UserGroupList />} />
+          <Route path="/UserGroupList" element={<UserGroupList />} />
+          <Route path="/UserRoleGroupManagement" element={<UserRoleGroupManagement />} />
         </Route>
 
         {/* Student routes */}
