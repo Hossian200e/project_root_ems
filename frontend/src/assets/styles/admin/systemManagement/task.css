@@ -1,0 +1,132 @@
+.menu-builder-container {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h2 {
+  font-size: 22px;
+  color: #333;
+  font-weight: 600;
+}
+
+.btn-add {
+  background: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-add:hover {
+  background: #005ec2;
+}
+
+.subtitle {
+  margin-top: 5px;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+/* TABLE */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.menu-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.menu-table th {
+  background: #f5f6fa;
+  color: #444;
+  padding: 12px;
+  font-weight: 600;
+  border-bottom: 2px solid #e5e5e5;
+}
+
+.menu-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.child-badge {
+  background: #4e73df;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+/* STATUS BADGES */
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.status-badge.active {
+  background: #28a745;
+}
+
+.status-badge.inactive {
+  background: #dc3545;
+}
+
+/* ACTION BUTTONS */
+.action-buttons {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn.view {
+  background: #17a2b8;
+  color: #fff;
+}
+
+.btn.view:hover {
+  background: #117986;
+}
+
+.btn.edit {
+  background: #ffc107;
+  color: #333;
+}
+
+.btn.edit:hover {
+  background: #d39e00;
+}
+
+.btn.delete {
+  background: #dc3545;
+  color: #fff;
+}
+
+.btn.delete:hover {
+  background: #a71d2a;
+}

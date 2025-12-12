@@ -18,6 +18,8 @@ import TeacherDashboard from "./teacher/dashboard/TeacherDashboard";
 //Admin Page.............
 import UserGroupList from "./admin/userManagement/UserGroupList";
 import UserRoleGroupManagement from "./admin/userManagement/UserRoleGroupManagement";
+import Task from "./admin/systemManagement/task";
+import Users from "./admin/systemManagement/users";
 
 
 function App() {
@@ -49,6 +51,8 @@ function App() {
           <Route path="/AdminDashboard" element={<AdminDashboard />} />
           <Route path="/UserGroupList" element={<UserGroupList />} />
           <Route path="/UserRoleGroupManagement" element={<UserRoleGroupManagement />} />
+          <Route path="/task" element={<Task />} />
+          <Route path="/users" element={<Users />} />
         </Route>
 
         {/* Student routes */}

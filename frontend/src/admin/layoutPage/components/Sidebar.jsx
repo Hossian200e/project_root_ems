@@ -59,8 +59,8 @@ const Sidebar = () => {
             </div>
             {activeMenu === "system" && (
               <ul className="submenu">
-                <li><a href="#">Task</a></li>
-                <li><a href="#">User</a></li>
+                <li><Link to="/task" className="menu-link">Task</Link></li>
+                <li><Link to="/users" className="menu-link">Users</Link></li>
               </ul>
             )}
           </li>

@@ -1,0 +1,333 @@
+/* Dark Mode Variables */
+.dark-mode {
+  --bg: #1e1e1e;
+  --text: #f5f5f5;
+  --card-bg: #2b2b2b;
+  --border: #444;
+  --primary: #4a6cf7;
+  --primary-hover: #3554d1;
+  --success: #28c76f;
+  --danger: #ff4d4d;
+  --info: #17a2b8;
+  --modal-bg: rgba(0,0,0,0.7);
+  --table-header: #2b2b2b;
+  --table-row: #3a3a3a;
+}
+
+/* Apply Dark Mode */
+.dark-mode .user-list-container {
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+.dark-mode .user-list-container h2 {
+  color: var(--text);
+}
+
+.dark-mode .breadcrumb {
+  color: var(--text);
+}
+
+.dark-mode .breadcrumb a {
+  color: var(--primary);
+}
+
+.dark-mode .entries-control select,
+.dark-mode .search-box input,
+.dark-mode .modal-box input,
+.dark-mode .modal-box select {
+  background: var(--table-row);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.dark-mode .user-table th {
+  background: var(--table-header);
+  color: var(--text);
+  border-bottom: 2px solid var(--border);
+}
+
+.dark-mode .user-table td {
+  background: var(--table-row);
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+}
+
+.dark-mode .modal-box {
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.dark-mode .btn-add,
+.dark-mode .btn.save {
+  background: var(--primary);
+  color: #fff;
+}
+
+.dark-mode .btn-add:hover,
+.dark-mode .btn.save:hover {
+  background: var(--primary-hover);
+}
+
+.dark-mode .btn.cancel {
+  background: var(--danger);
+  color: #fff;
+}
+
+.dark-mode .btn-icon.view {
+  background: var(--info);
+}
+
+.dark-mode .btn-icon.edit {
+  background: #ffc107;
+  color: #222;
+}
+
+.dark-mode .btn-icon.delete {
+  background: var(--danger);
+}
+
+.user-list-container {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Header */
+.user-list-container h2 {
+  font-size: 22px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* Top Controls */
+.top-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.entries-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.entries-control select {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.entries-control label,
+.entries-control span {
+  font-size: 14px;
+  color: #666;
+}
+
+.search-box input {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* Table */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-table th {
+  background: #f5f6fa;
+  color: #444;
+  padding: 12px;
+  font-weight: 600;
+  border-bottom: 2px solid #e5e5e5;
+}
+
+.user-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Status Badge */
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.status-badge.active {
+  background: #28a745;
+}
+
+.status-badge.inactive {
+  background: #dc3545;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.btn-icon {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* View Button */
+.btn-icon.view {
+  background: #17a2b8;
+  color: #fff;
+}
+
+.btn-icon.view:hover {
+  background: #117986;
+}
+
+/* Edit Button */
+.btn-icon.edit {
+  background: #ffc107;
+  color: #333;
+}
+
+.btn-icon.edit:hover {
+  background: #d39e00;
+}
+
+/* Delete Button */
+.btn-icon.delete {
+  background: #dc3545;
+  color: #fff;
+}
+
+.btn-icon.delete:hover {
+  background: #a71d2a;
+}
+
+/* Optional: Child/Role Badge */
+.child-badge {
+  background: #4e73df;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.pagination-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #666;
+}
+
+.pagination-buttons button {
+  background: #f5f6fa;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  margin: 0 2px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.pagination-buttons button:hover {
+  background: #e2e6ea;
+}
+
+.pagination-buttons button.active {
+  background: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.pagination-buttons button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.right-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Reuse Menu Builder button style */
+.btn-add {
+  background: #007bff;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.btn-add:hover {
+  background: #005ec2;
+}
+.user-list-header {
+  margin-bottom: 15px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.breadcrumb a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb span {
+  margin: 0 5px;
+}
+.mandatory {
+  color: red;
+}
+
+.modal-box input, .modal-box select {
+  width: 100%;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.edit-layout label {
+  font-weight: 500;
+}
