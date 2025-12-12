@@ -1,0 +1,138 @@
+.main-content {
+
+  background: #f5f7fb;
+
+  font-family: "Poppins", sans-serif;
+}
+
+.breadcrumb {
+  font-size: 15px;
+  margin-bottom: 14px;
+  color: #555;
+  display: flex;
+  gap: 5px;
+}
+
+.breadcrumb a {
+  color: #0066cc;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.breadcrumb span { color: #999; }
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.topbar h2 {
+  font-size: 22px;
+  color: #222;
+  margin: 0;
+  font-weight: 600;
+}
+
+h3 {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: 600;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #e3e3e3;
+  font-size: 18px;
+}
+
+form {
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-bottom: 15px;
+}
+
+.form-group.full { grid-column: span 2; }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px 12px;
+  border: 1px solid #d1d1d1;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+  transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74,144,226,0.15);
+}
+
+textarea { resize: vertical; min-height: 80px; }
+
+.preview {
+  margin-top: 8px;
+  width: 120px;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  display: block;
+}
+
+.form-group a {
+  margin-top: 6px;
+  text-decoration: none;
+  color: #007bff;
+  font-size: 14px;
+}
+
+button[type="submit"] {
+  background: #035ded;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 25px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+button[type="submit"]:hover { background: #0248ba; }
+
+@media (max-width: 900px) {
+  .form-row { grid-template-columns: 1fr; }
+  .form-group.full { grid-column: span 1; }
+}
+
+@media (max-width: 600px) {
+  .main-content { padding: 15px; }
+  form { padding: 15px; }
+}

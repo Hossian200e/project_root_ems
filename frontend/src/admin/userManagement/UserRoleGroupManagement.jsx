@@ -1,93 +1,125 @@
 import React, { useState } from "react";
+import { FaEye, FaEdit } from "react-icons/fa";
 import "../../assets/styles/admin/userManagement/UserRoleGroupManagement.css";
 
 const initialRoles = [
-  { 
-    id: 1, 
-    role: "Student", 
-    permissions: ["View Result", "Payment"], 
-    createdBy: "Admin", 
-    createdAt: "2025-12-11 10:00", 
+  {
+    id: 1,
+    role: "Student",
+    permissions: ["View Result", "Payment"],
+    createdBy: "Admin",
+    createdAt: "2025-12-11 10:00",
     editedBy: "Admin",
-    updatedAt: "2025-12-11 10:00"
+    updatedAt: "2025-12-11 10:00",
   },
-  { 
-    id: 2, 
-    role: "Teacher", 
-    permissions: ["Mark Input", "View Student"], 
-    createdBy: "Admin", 
-    createdAt: "2025-12-11 10:05", 
+  {
+    id: 2,
+    role: "Teacher",
+    permissions: ["Mark Input", "View Student"],
+    createdBy: "Admin",
+    createdAt: "2025-12-11 10:05",
     editedBy: "Admin",
-    updatedAt: "2025-12-11 10:05"
+    updatedAt: "2025-12-11 10:05",
   },
 ];
 
 const predefinedRoles = ["Student", "Teacher", "Admin", "Accountant", "Staff"];
-
-const allPermissions = ["View Result", "Payment", "Mark Input", "View Student", "Manage Classes"];
+const allPermissions = [
+  "View Result",
+  "Payment",
+  "Mark Input",
+  "View Student",
+  "Manage Classes",
+];
 
 export default function UserRoleGroupManagement() {
   const [roles, setRoles] = useState(initialRoles);
   const [selectedRole, setSelectedRole] = useState(null);
   const [editMode, setEditMode] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
-  const [newRole, setNewRole] = useState({ role: "", permissions: [], createdBy: "Admin", editedBy: "Admin" });
 
-  // View Role
+  const [newRole, setNewRole] = useState({
+    role: "",
+    permissions: [],
+    createdBy: "Admin",
+    editedBy: "Admin",
+  });
+
+  /* ------- View Role ------- */
   const handleView = (role) => {
     setSelectedRole(role);
     setEditMode(false);
   };
 
-  // Edit Role
+  /* ------- Edit Role ------- */
   const handleEdit = (role) => {
     setSelectedRole(role);
     setEditMode(true);
   };
 
   const handleSaveEdit = () => {
-    const updatedRoles = roles.map(r => 
-      r.id === selectedRole.id ? { ...selectedRole, updatedAt: new Date().toLocaleString() } : r
+    const updatedRoles = roles.map((r) =>
+      r.id === selectedRole.id
+        ? { ...selectedRole, updatedAt: new Date().toLocaleString() }
+        : r
     );
     setRoles(updatedRoles);
     setSelectedRole(null);
   };
 
-  // Add Role
+  /* ------- Add Role ------- */
   const handleAddRole = () => {
-    setNewRole({ role: "", permissions: [], createdBy: "Admin", editedBy: "Admin" });
+    setNewRole({
+      role: "",
+      permissions: [],
+      createdBy: "Admin",
+      editedBy: "Admin",
+    });
     setShowAddModal(true);
   };
 
   const handleSaveNewRole = () => {
-    const newId = roles.length ? Math.max(...roles.map(r => r.id)) + 1 : 1;
-    const newRoleData = { 
-      ...newRole, 
-      id: newId, 
-      createdAt: new Date().toLocaleString(), 
-      updatedAt: new Date().toLocaleString() 
+    const newId = roles.length
+      ? Math.max(...roles.map((r) => r.id)) + 1
+      : 1;
+
+    const newRoleData = {
+      ...newRole,
+      id: newId,
+      createdAt: new Date().toLocaleString(),
+      updatedAt: new Date().toLocaleString(),
     };
+
     setRoles([...roles, newRoleData]);
     setShowAddModal(false);
   };
 
-  // Toggle permission
+  /* ------- Permission Toggle ------- */
   const togglePermission = (perm, roleData, setRoleData) => {
     if (roleData.permissions.includes(perm)) {
-      setRoleData({ ...roleData, permissions: roleData.permissions.filter(p => p !== perm) });
+      setRoleData({
+        ...roleData,
+        permissions: roleData.permissions.filter((p) => p !== perm),
+      });
     } else {
-      setRoleData({ ...roleData, permissions: [...roleData.permissions, perm] });
+      setRoleData({
+        ...roleData,
+        permissions: [...roleData.permissions, perm],
+      });
     }
   };
 
   return (
     <div className="role-permission-page">
+      {/* Header */}
       <div className="header">
         <div className="breadcrumb">
-        <a href="#">Dashboard</a> <span>›</span>
-        User Role & Group Management
+          <a href="#">Dashboard</a> <span>›</span> User Role & Group Management
         </div>
-        <button className="btn-add" onClick={handleAddRole}>+ Add Role</button>
+
+        <button className="btn-add" onClick={handleAddRole}>
+          + Add Role
+        </button>
       </div>
 
       {/* Role Table */}
@@ -104,6 +136,7 @@ export default function UserRoleGroupManagement() {
               <th>Actions</th>
             </tr>
           </thead>
+
           <tbody>
             {roles.map((role, index) => (
               <tr key={role.id}>
@@ -114,8 +147,19 @@ export default function UserRoleGroupManagement() {
                 <td>{role.editedBy}</td>
                 <td>{role.updatedAt}</td>
                 <td>
-                  <button className="btn view" onClick={() => handleView(role)}>View</button>
-                  <button className="btn edit" onClick={() => handleEdit(role)}>Edit</button>
+                  <button
+                    className="btn-icon view"
+                    onClick={() => handleView(role)}
+                  >
+                    <FaEye />
+                  </button>
+
+                  <button
+                    className="btn-icon edit"
+                    onClick={() => handleEdit(role)}
+                  >
+                    <FaEdit />
+                  </button>
                 </td>
               </tr>
             ))}
@@ -127,9 +171,13 @@ export default function UserRoleGroupManagement() {
       {selectedRole && (
         <div className="modal-overlay">
           <div className="modal-box">
-            <h3>{editMode ? "Edit Role & Permissions" : "Role Details"}</h3>
+            <h3>
+              {editMode
+                ? "Edit Role & Permissions"
+                : "Role & Permission Details"}
+            </h3>
 
-            {/* View Mode */}
+            {/* --- VIEW MODE --- */}
             {!editMode && (
               <div className="view-table-layout">
                 <table>
@@ -163,12 +211,19 @@ export default function UserRoleGroupManagement() {
               </div>
             )}
 
-            {/* Edit Mode */}
+            {/* --- EDIT MODE --- */}
             {editMode && (
               <div className="edit-layout">
+                {/* GROUP NAME READ ONLY */}
                 <label>Group Name</label>
-                <input  value={selectedRole.role}  />
+                <input
+                  type="text"
+                  value={selectedRole.role}
+                  readOnly
+                  className="readonly-input"
+                />
 
+                {/* PERMISSIONS */}
                 <label>Permissions</label>
                 <div className="permissions-list">
                   {allPermissions.map((perm) => (
@@ -176,7 +231,9 @@ export default function UserRoleGroupManagement() {
                       <input
                         type="checkbox"
                         checked={selectedRole.permissions.includes(perm)}
-                        onChange={() => togglePermission(perm, selectedRole, setSelectedRole)}
+                        onChange={() =>
+                          togglePermission(perm, selectedRole, setSelectedRole)
+                        }
                       />
                       {perm}
                     </label>
@@ -186,62 +243,83 @@ export default function UserRoleGroupManagement() {
             )}
 
             <div className="modal-actions">
-              <button className="btn cancel" onClick={() => setSelectedRole(null)}>Close</button>
-              {editMode && <button className="btn save" onClick={handleSaveEdit}>Save Changes</button>}
+              <button
+                className="btn cancel"
+                onClick={() => setSelectedRole(null)}
+              >
+                Close
+              </button>
+
+              {editMode && (
+                <button className="btn save" onClick={handleSaveEdit}>
+                  Save Changes
+                </button>
+              )}
             </div>
           </div>
         </div>
       )}
 
       {/* Add Role Modal */}
+      {showAddModal && (
+        <div className="modal-overlay">
+          <div className="modal-box">
+            <h3>Add New Role</h3>
 
-{showAddModal && (
-  <div className="modal-overlay">
-    <div className="modal-box">
-      <h3>Add New Role</h3>
-      <div className="edit-layout">
-        <label>Group Name</label>
-        <select
-          value={newRole.role}
-          onChange={(e) => setNewRole({ ...newRole, role: e.target.value })}
-        >
-          <option value="">Select Role</option>
-          {predefinedRoles
-            .filter(roleName => !roles.some(r => r.role === roleName)) // filter already added roles
-            .map(roleName => (
-              <option key={roleName} value={roleName}>{roleName}</option>
-            ))
-          }
-        </select>
+            <div className="edit-layout">
+              <label>Group Name</label>
+              <select
+                value={newRole.role}
+                onChange={(e) =>
+                  setNewRole({ ...newRole, role: e.target.value })
+                }
+              >
+                <option value="">Select Role</option>
 
-        <label>Permissions</label>
-        <div className="permissions-list">
-          {allPermissions.map((perm) => (
-            <label key={perm}>
-              <input
-                type="checkbox"
-                checked={newRole.permissions.includes(perm)}
-                onChange={() => togglePermission(perm, newRole, setNewRole)}
-              />
-              {perm}
-            </label>
-          ))}
+                {predefinedRoles
+                  .filter((r) => !roles.some((x) => x.role === r))
+                  .map((r) => (
+                    <option key={r} value={r}>
+                      {r}
+                    </option>
+                  ))}
+              </select>
+
+              <label>Permissions</label>
+              <div className="permissions-list">
+                {allPermissions.map((perm) => (
+                  <label key={perm}>
+                    <input
+                      type="checkbox"
+                      checked={newRole.permissions.includes(perm)}
+                      onChange={() =>
+                        togglePermission(perm, newRole, setNewRole)
+                      }
+                    />
+                    {perm}
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div className="modal-actions">
+              <button
+                className="btn cancel"
+                onClick={() => setShowAddModal(false)}
+              >
+                Close
+              </button>
+              <button
+                className="btn save"
+                onClick={handleSaveNewRole}
+                disabled={!newRole.role}
+              >
+                Add Role
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className="modal-actions">
-        <button className="btn cancel" onClick={() => setShowAddModal(false)}>Close</button>
-        <button
-          className="btn save"
-          onClick={handleSaveNewRole}
-          disabled={!newRole.role} // disable save if no role selected
-        >
-          Add Role
-        </button>
-      </div>
-    </div>
-  </div>
-)}
+      )}
     </div>
   );
 }

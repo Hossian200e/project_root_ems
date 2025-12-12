@@ -14,13 +14,13 @@ import AdminDashboard from "./admin/dashboard/AdminDashboard";
 import StudentDashboard from "./student/dashboard/StudentDashboard";
 import TeacherDashboard from "./teacher/dashboard/TeacherDashboard";
 
-
-//Admin Page.............
+// Admin Pages
 import UserGroupList from "./admin/userManagement/UserGroupList";
 import UserRoleGroupManagement from "./admin/userManagement/UserRoleGroupManagement";
 import Task from "./admin/systemManagement/task";
 import Users from "./admin/systemManagement/users";
-
+import ProfileSetup from "./admin/globalConfigurations/instituteSetup/profileSetup"; // <-- Added
+import CampusSetup from "./admin/globalConfigurations/instituteSetup/campusSetup"; // <-- Added
 
 function App() {
   // 🌙 Light/Dark Mode State
@@ -53,6 +53,8 @@ function App() {
           <Route path="/UserRoleGroupManagement" element={<UserRoleGroupManagement />} />
           <Route path="/task" element={<Task />} />
           <Route path="/users" element={<Users />} />
+          <Route path="/ProfileSetup" element={<ProfileSetup />} />  {/* <-- Added */}
+          <Route path="/campusSetup" element={<CampusSetup />} /> 
         </Route>
 
         {/* Student routes */}
