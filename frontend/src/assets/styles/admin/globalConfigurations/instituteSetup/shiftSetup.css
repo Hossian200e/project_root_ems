@@ -245,3 +245,11 @@ input[type="search"] {
     width: 100%;
   }
 }
+/* ===============================
+   REQUIRED FIELD
+================================ */
+.required {
+  color: red;
+  font-weight: 600;
+  margin-left: 2px;
+}

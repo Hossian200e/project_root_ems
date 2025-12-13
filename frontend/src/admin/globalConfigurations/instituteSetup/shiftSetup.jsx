@@ -71,7 +71,7 @@ const ShiftSetup = () => {
         <form className="form" onSubmit={handleSubmit}>
           <div className="form-row">
             <div className="form-group">
-              <label>Campus <span className="required">*</span></label>
+              <label>Campus Name<span className="required">*</span></label>
               <select name="campus" value={formData.campus} onChange={handleChange}>
                 {campuses.map((c) => (
                   <option key={c} value={c}>{c}</option>
@@ -118,7 +118,7 @@ const ShiftSetup = () => {
           <thead>
             <tr>
               <th>No.</th>
-              <th>Campus</th>
+              <th>Campus Name</th>
               <th>Shift Name</th>
               <th>Roll Identifier</th>
               <th>Status</th>

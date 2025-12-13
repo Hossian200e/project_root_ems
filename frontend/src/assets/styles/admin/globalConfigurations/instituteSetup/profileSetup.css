@@ -136,3 +136,11 @@ button[type="submit"]:hover { background: #0248ba; }
   .main-content { padding: 15px; }
   form { padding: 15px; }
 }
+/* ===============================
+   REQUIRED FIELD
+================================ */
+.required {
+  color: red;
+  font-weight: 600;
+  margin-left: 2px;
+}
