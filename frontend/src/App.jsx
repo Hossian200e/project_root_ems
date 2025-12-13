@@ -21,6 +21,7 @@ import Task from "./admin/systemManagement/task";
 import Users from "./admin/systemManagement/users";
 import ProfileSetup from "./admin/globalConfigurations/instituteSetup/profileSetup"; // <-- Added
 import CampusSetup from "./admin/globalConfigurations/instituteSetup/campusSetup"; // <-- Added
+import ShiftSetup from "./admin/globalConfigurations/instituteSetup/shiftSetup"; // <-- Added
 
 function App() {
   // 🌙 Light/Dark Mode State
@@ -55,6 +56,7 @@ function App() {
           <Route path="/users" element={<Users />} />
           <Route path="/ProfileSetup" element={<ProfileSetup />} />  {/* <-- Added */}
           <Route path="/campusSetup" element={<CampusSetup />} /> 
+          <Route path="/shiftSetup" element={<ShiftSetup />} /> 
         </Route>
 
         {/* Student routes */}

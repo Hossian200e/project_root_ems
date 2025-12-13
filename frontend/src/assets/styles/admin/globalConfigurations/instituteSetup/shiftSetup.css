@@ -1,0 +1,247 @@
+/* ===============================
+   ROOT + DARK MODE VARIABLES
+================================ */
+:root {
+  --bg: #f5f7fb;
+  --card-bg: #ffffff;
+  --text: #333;
+  --border: #e5e7eb;
+
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+
+  --active-bg: #dcfce7;
+  --active-text: #166534;
+
+  --inactive-bg: #fee2e2;
+  --inactive-text: #991b1b;
+
+  --btn-bg: #4f46e5;
+  --btn-hover: #4338ca;
+}
+
+.dark-mode {
+  --bg: #111827;
+  --card-bg: #1f2933;
+  --text: #f9fafb;
+  --border: #374151;
+
+  --active-bg: rgba(34, 197, 94, 0.2);
+  --active-text: #22c55e;
+
+  --inactive-bg: rgba(239, 68, 68, 0.2);
+  --inactive-text: #ef4444;
+
+  --btn-bg: #6e8bff;
+  --btn-hover: #5872d9;
+}
+
+/* ===============================
+   PAGE LAYOUT
+================================ */
+.main-content {
+  background: var(--bg);
+  color: var(--text);
+
+  font-family: "Poppins", sans-serif;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.breadcrumb span {
+  margin: 0 5px;
+}
+
+/* ===============================
+   HEADER
+================================ */
+.topbar {
+  margin-bottom: 20px;
+}
+
+.topbar h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ===============================
+   FORM CARD
+================================ */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: 6000;
+  color: var(--text);
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.form-group.align-end {
+  display: flex;
+  align-items: flex-end;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: var(--btn-bg);
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: var(--btn-hover);
+}
+
+/* ===============================
+   TABLE
+================================ */
+input[type="search"] {
+  padding: 6px 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  width: 100%;
+  max-width: 300px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.data-table th,
+.data-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.data-table th {
+  font-weight: 600;
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+.data-table tbody tr:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* ===============================
+   STATUS BADGES
+================================ */
+.status {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.status.active {
+  background: var(--active-bg);
+  color: var(--active-text);
+}
+
+.status.inactive {
+  background: var(--inactive-bg);
+  color: var(--inactive-text);
+}
+
+/* ===============================
+   EDIT BUTTON
+================================ */
+.btn-edit {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 5px;
+  background: #facc15; /* yellow color */
+  color: #4231a7; /* black text for contrast */
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+.btn-edit svg {
+  color: inherit; /* icon inherits button color */
+}
+
+.btn-edit:hover {
+  background: #eab308; /* darker yellow on hover */
+}
+
+
+/* ===============================
+   TABLE INFO
+================================ */
+.table-info {
+  font-size: 12px;
+  margin-top: 8px;
+  color: var(--text);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  input[type="search"] {
+    width: 100%;
+  }
+}
