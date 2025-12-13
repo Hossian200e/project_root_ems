@@ -22,6 +22,8 @@ import Users from "./admin/systemManagement/users";
 import ProfileSetup from "./admin/globalConfigurations/instituteSetup/profileSetup"; // <-- Added
 import CampusSetup from "./admin/globalConfigurations/instituteSetup/campusSetup"; // <-- Added
 import ShiftSetup from "./admin/globalConfigurations/instituteSetup/shiftSetup"; // <-- Added
+import MediumSetup from "./admin/globalConfigurations/instituteSetup/mediumSetup"; // <-- Added
+import EducationLevelSetup from "./admin/globalConfigurations/instituteSetup/educationLevelSetup"; // <-- Added
 
 function App() {
   // 🌙 Light/Dark Mode State
@@ -57,6 +59,8 @@ function App() {
           <Route path="/ProfileSetup" element={<ProfileSetup />} />  {/* <-- Added */}
           <Route path="/campusSetup" element={<CampusSetup />} /> 
           <Route path="/shiftSetup" element={<ShiftSetup />} /> 
+          <Route path="/mediumSetup" element={<MediumSetup />} />
+          <Route path="/educationLevelSetup" element={<EducationLevelSetup />} />
         </Route>
 
         {/* Student routes */}
