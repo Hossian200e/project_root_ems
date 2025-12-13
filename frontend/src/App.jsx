@@ -25,6 +25,11 @@ import ShiftSetup from "./admin/globalConfigurations/instituteSetup/shiftSetup";
 import MediumSetup from "./admin/globalConfigurations/instituteSetup/mediumSetup"; // <-- Added
 import EducationLevelSetup from "./admin/globalConfigurations/instituteSetup/educationLevelSetup"; // <-- Added
 import DepartmentsSetup from "./admin/globalConfigurations/instituteSetup/departmentsSetup"; // <-- Added
+import ClassSetup from "./admin/globalConfigurations/instituteSetup/classSetup"; // <-- Added
+import SectionSetup from "./admin/globalConfigurations/instituteSetup/sectionSetup";
+import SubjectSetup from "./admin/globalConfigurations/instituteSetup/subjectSetup";
+import SessionSetup from "./admin/globalConfigurations/instituteSetup/sessionSetup";
+import SubjectSubType from "./admin/globalConfigurations/instituteSetup/subjectSubType";
 
 function App() {
   // 🌙 Light/Dark Mode State
@@ -63,6 +68,11 @@ function App() {
           <Route path="/mediumSetup" element={<MediumSetup />} />
           <Route path="/educationLevelSetup" element={<EducationLevelSetup />} />
           <Route path="/departmentsSetup" element={<DepartmentsSetup />} />
+          <Route path="/classSetup" element={<ClassSetup />} />
+          <Route path="/sectionSetup" element={<SectionSetup />} />
+          <Route path="/subjectSetup" element={<SubjectSetup />} />
+          <Route path="/sessionSetup" element={<SessionSetup />} />
+          <Route path="/subjectSubType" element={<SubjectSubType />} />
         </Route>
 
         {/* Student routes */}
