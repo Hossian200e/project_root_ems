@@ -24,6 +24,7 @@ import CampusSetup from "./admin/globalConfigurations/instituteSetup/campusSetup
 import ShiftSetup from "./admin/globalConfigurations/instituteSetup/shiftSetup"; // <-- Added
 import MediumSetup from "./admin/globalConfigurations/instituteSetup/mediumSetup"; // <-- Added
 import EducationLevelSetup from "./admin/globalConfigurations/instituteSetup/educationLevelSetup"; // <-- Added
+import DepartmentsSetup from "./admin/globalConfigurations/instituteSetup/departmentsSetup"; // <-- Added
 
 function App() {
   // 🌙 Light/Dark Mode State
@@ -61,6 +62,7 @@ function App() {
           <Route path="/shiftSetup" element={<ShiftSetup />} /> 
           <Route path="/mediumSetup" element={<MediumSetup />} />
           <Route path="/educationLevelSetup" element={<EducationLevelSetup />} />
+          <Route path="/departmentsSetup" element={<DepartmentsSetup />} />
         </Route>
 
         {/* Student routes */}

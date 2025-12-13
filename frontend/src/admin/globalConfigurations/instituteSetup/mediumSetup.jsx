@@ -170,6 +170,7 @@ const MediumSetup = () => {
           <thead>
             <tr>
               <th>No.</th>
+              <th>Campus Name</th>
               <th>Shift Name</th>
               <th>Medium Name</th>
               <th>Roll Identifier</th>
@@ -181,6 +182,7 @@ const MediumSetup = () => {
             {filteredMediums.length > 0 ? filteredMediums.map((m, index) => (
               <tr key={m.id}>
                 <td>{index + 1}</td>
+                <th></th>
                 <td>{m.shift_name}</td>
                 <td>{m.name}</td>
                 <td>{m.identifier}</td>

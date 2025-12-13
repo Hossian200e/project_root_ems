@@ -256,7 +256,7 @@ const EducationLevelSetup = () => {
           <div className="form-row">
             <div className="form-group">
               <label>Roll Identifier <span className="required">*</span></label>
-              <input type="number" name="roll" value={form.roll} onChange={handleInputChange} />
+              <input type="number" name="roll" value={form.roll} onChange={handleInputChange} placeholder="Roll identifier"/>
             </div>
 
             <div className="form-group">
@@ -268,8 +268,8 @@ const EducationLevelSetup = () => {
             </div>
 
             <div className="form-group">
-              <label>Number</label>
-              <input type="number" name="number" value={form.number} onChange={handleInputChange} />
+              <label>Education level Number</label>
+              <input type="number" name="number" value={form.number} onChange={handleInputChange} placeholder="Edu. Level Number"/>
             </div>
 
             <div className="form-group">
@@ -319,6 +319,7 @@ const EducationLevelSetup = () => {
           <thead>
             <tr>
               <th>No.</th>
+              <th>Campus Name</th>
               <th>Shift Name</th>
               <th>Medium Name</th>
               <th>Education Level Name</th>
@@ -335,6 +336,7 @@ const EducationLevelSetup = () => {
               filteredData.map((item, index) => (
                 <tr key={item.id}>
                   <td>{index + 1}</td>
+                  <th></th>
                   <td>{item.shift_name}</td>
                   <td>{item.medium_name}</td>
                   <td>{item.title}</td>
