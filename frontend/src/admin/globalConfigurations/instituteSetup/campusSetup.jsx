@@ -1,129 +1,159 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
+import { FaEdit } from "react-icons/fa";
 import "../../../assets/styles/admin/globalConfigurations/instituteSetup/campusSetup.css";
 
 const initialCampuses = [
-  { id: 1, name: "Main Campus", code: "MC001", status: "Active" },
-  { id: 2, name: "City Campus", code: "CC002", status: "Inactive" },
+  {
+    id: 1,
+    name: "Magura Collectorate Collegiate School",
+    code: "magura-collectorate-collegiate-school",
+    status: "Active",
+    reportDate: "2025-01-10",
+  },
 ];
+
+const slugify = (text) =>
+  text
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-");
 
 export default function CampusSetup() {
   const [campuses, setCampuses] = useState(initialCampuses);
   const [selectedCampus, setSelectedCampus] = useState(null);
-  const [editMode, setEditMode] = useState(false);
-  const [showAddModal, setShowAddModal] = useState(false);
-  const [newCampusName, setNewCampusName] = useState("");
+  const [search, setSearch] = useState("");
+  const [entries] = useState(10);
 
-  // ADD
-  const handleAddCampus = () => {
-    setNewCampusName("");
-    setShowAddModal(true);
-  };
+  /* ---------------- FILTER ---------------- */
+  const filteredCampuses = useMemo(() => {
+    return campuses.filter((c) =>
+      c.name.toLowerCase().includes(search.toLowerCase())
+    );
+  }, [campuses, search]);
 
-  const handleSaveNewCampus = () => {
-    if (!newCampusName.trim()) {
-      alert("Please enter campus name");
-      return;
-    }
-    const newId = campuses.length ? Math.max(...campuses.map(c => c.id)) + 1 : 1;
-    setCampuses([
-      ...campuses,
-      { id: newId, name: newCampusName, code: `C${String(newId).padStart(3,"0")}`, status: "Active" }
-    ]);
-    setShowAddModal(false);
-  };
-
-  // EDIT
-  const handleEditCampus = (campus) => {
-    setSelectedCampus(campus);
-    setEditMode(true);
-  };
-
+  /* ---------------- SAVE EDIT WITH CONFIRM ---------------- */
   const handleSaveEditCampus = () => {
-    if (!selectedCampus.name.trim()) {
-      alert("Campus name cannot be empty");
-      return;
-    }
-    setCampuses(prev => prev.map(c => c.id === selectedCampus.id ? selectedCampus : c));
-    setSelectedCampus(null);
-  };
+    const confirmUpdate = window.confirm(
+      "Are you sure you want to update this campus?"
+    );
 
-  // STATUS TOGGLE
-  const handleStatusToggle = (campus) => {
-    setCampuses(prev => prev.map(c => c.id === campus.id ? { ...c, status: c.status === "Active" ? "Inactive" : "Active" } : c));
+    if (!confirmUpdate) return;
+
+    setCampuses((prev) =>
+      prev.map((c) =>
+        c.id === selectedCampus.id
+          ? {
+              ...selectedCampus,
+              code: slugify(selectedCampus.name),
+            }
+          : c
+      )
+    );
+    setSelectedCampus(null);
   };
 
   return (
     <div className="campus-setup-page">
-      <div className="page-header">
-        <div className="breadcrumb">
-          <a href="#">Dashboard</a> <span>›</span>
-          <a href="#">Global Configuration</a> <span>›</span>
-          Campus Setup
-        </div>
-        <button className="btn-add" onClick={handleAddCampus}>
-          + Add Campus
-        </button>
+      {/* BREADCRUMB */}
+      <div className="breadcrumb">
+        <a>Dashboard</a> <span>›</span>
+        <a>Global Configuration</a> <span>›</span>
+        Campus Setup
       </div>
 
-      <div className="table-wrapper">
-        <table className="campus-table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Campus Name</th>
-              <th>Campus Code</th>
-              <th>Status</th>
-              <th>Actions</th>
+      {/* HEADER + SEARCH */}
+      <div className="table-controls">
+        <div className="page-header">
+          <h2>Campus List</h2>
+        </div>
+
+        <input
+          type="text"
+          placeholder="Search..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
+
+      {/* TABLE */}
+      <table className="campus-table">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Campus Name</th>
+            <th>Campus Code</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredCampuses.slice(0, entries).map((c, i) => (
+            <tr key={c.id}>
+              <td>{i + 1}</td>
+              <td>{c.name}</td>
+              <td>{c.code}</td>
+              <td>
+                <span
+                  className={`status ${
+                    c.status === "Active"
+                      ? "status-active"
+                      : "status-inactive"
+                  }`}
+                >
+                  {c.status}
+                </span>
+              </td>
+              <td>
+                <button
+                  className="btn-icon edit"
+                  onClick={() => setSelectedCampus({ ...c })}
+                >
+                  <FaEdit />
+                </button>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {campuses.map((campus, index) => (
-              <tr key={campus.id}>
-                <td>{index + 1}</td>
-                <td>{campus.name}</td>
-                <td>{campus.code}</td>
-                <td>
-                  <span
-                    className={`status ${campus.status === "Active" ? "status-active" : "status-inactive"}`}
-                    onClick={() => handleStatusToggle(campus)}
-                  >
-                    {campus.status}
-                  </span>
-                </td>
-                <td>
-                  <button className="btn-icon edit" onClick={() => handleEditCampus(campus)}>✎</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {/* ADD MODAL */}
-      {showAddModal && (
-        <div className="modal-overlay">
-          <div className="modal-box">
-            <h3>Add New Campus</h3>
-            <label>Campus Name</label>
-            <input type="text" value={newCampusName} onChange={e => setNewCampusName(e.target.value)} />
-            <div className="modal-actions">
-              <button className="btn cancel" onClick={() => setShowAddModal(false)}>Close</button>
-              <button className="btn save" onClick={handleSaveNewCampus}>Add Campus</button>
-            </div>
-          </div>
-        </div>
-      )}
+          ))}
+        </tbody>
+      </table>
 
       {/* EDIT MODAL */}
       {selectedCampus && (
         <div className="modal-overlay">
           <div className="modal-box">
             <h3>Edit Campus</h3>
+
             <label>Campus Name</label>
-            <input type="text" value={selectedCampus.name} onChange={e => setSelectedCampus({...selectedCampus, name: e.target.value})} />
+            <input
+              type="text"
+              value={selectedCampus.name}
+              onChange={(e) =>
+                setSelectedCampus({
+                  ...selectedCampus,
+                  name: e.target.value,
+                })
+              }
+            />
+
+            <label>Status</label>
+            <select
+              value={selectedCampus.status}
+              onChange={(e) =>
+                setSelectedCampus({
+                  ...selectedCampus,
+                  status: e.target.value,
+                })
+              }
+            >
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+
             <div className="modal-actions">
-              <button className="btn cancel" onClick={() => setSelectedCampus(null)}>Close</button>
-              <button className="btn save" onClick={handleSaveEditCampus}>Save Changes</button>
+              <button onClick={() => setSelectedCampus(null)}>Close</button>
+              <button className="btn save" onClick={handleSaveEditCampus}>
+                Update
+              </button>
             </div>
           </div>
         </div>

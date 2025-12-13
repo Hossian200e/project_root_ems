@@ -1,185 +1,239 @@
-/* ===================== General Layout ===================== */
-.main-content {
+/* ===============================
+   ROOT + DARK MODE VARIABLES
+================================ */
+:root {
+  --bg: #f5f7fb;
+  --card-bg: #ffffff;
+  --text: #333;
+  --border: #e5e7eb;
 
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+
+  --active-bg: #dcfce7;
+  --active-text: #166534;
+
+  --inactive-bg: #fee2e2;
+  --inactive-text: #991b1b;
+
+  --close-bg: #ef4444;
+  --close-hover: #dc2626;
+}
+
+.dark-mode {
+  --bg: #111827;
+  --card-bg: #1f2933;
+  --text: #f9fafb;
+  --border: #374151;
+
+  --active-bg: rgba(34, 197, 94, 0.15);
+  --active-text: #22c55e;
+
+  --inactive-bg: rgba(239, 68, 68, 0.15);
+  --inactive-text: #ef4444;
+}
+
+/* ===============================
+   PAGE LAYOUT
+================================ */
+.campus-setup-page {
+  background: var(--bg);
   font-family: "Poppins", sans-serif;
-  background-color: #f5f6fa;
+  color: var(--text);
 }
 
-/* ===================== Breadcrumb ===================== */
-.breadcrumb {
-  font-size: 14px;
-  margin-bottom: 20px;
-}
-.breadcrumb a {
-  color: #3498db;
-  text-decoration: none;
-}
-.breadcrumb span {
-  margin: 0 5px;
-  color: #555;
-}
-
-/* ===================== Topbar ===================== */
-.topbar {
-  margin-bottom: 20px;
-  padding: 15px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-.topbar h2 {
-  margin: 0;
-  color: #2c3e50;
-}
-
-/* ===================== Card Section ===================== */
-.card {
-  background-color: #fff;
-  padding: 20px;
-  margin-bottom: 25px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.card h3 {
-  margin-bottom: 15px;
-  color: #2c3e50;
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 5px;
-}
-
-/* ===================== Form ===================== */
-.form-row {
+/* ===============================
+   HEADER
+================================ */
+.page-header {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-bottom: 15px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.form-group {
-  flex: 1;
-  min-width: 200px;
+.page-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ===============================
+   CONTROLS
+================================ */
+.table-controls {
   display: flex;
-  flex-direction: column;
-}
-
-.form-group label {
-  margin-bottom: 5px;
-  font-weight: 500;
-  color: #2c3e50;
-}
-
-.form-group .required {
-  color: red;
-  margin-left: 3px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  padding: 10px 12px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: #3498db;
-  outline: none;
-}
-
-textarea {
-  min-height: 80px;
-  resize: vertical;
-}
-
-/* Align button to bottom in form-row */
-.form-group.align-end {
-  display: flex;
-  align-items: flex-end;
-}
-
-.btn {
-  padding: 10px 18px;
-  background-color: #3498db;
-  color: #fff;
-  border: none;
-  font-weight: 500;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.btn:hover {
-  background-color: #2980b9;
-}
-
-.btn-edit {
-  padding: 5px 10px;
-  background-color: #f39c12;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card-bg);
+  padding: 10px 15px;
+  border-radius: 6px 6px 0 0;
+  border: 1px solid var(--border);
+  border-bottom: none;
   font-size: 13px;
-  transition: background-color 0.2s;
 }
 
-.btn-edit:hover {
-  background-color: #e67e22;
+.table-controls input {
+  padding: 5px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 13px;
+  background: var(--bg);
+  color: var(--text);
 }
 
-/* ===================== Table ===================== */
-.data-table {
+/* ===============================
+   TABLE
+================================ */
+.campus-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 15px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
 }
 
-.data-table th,
-.data-table td {
+.campus-table thead {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.campus-table th,
+.campus-table td {
   padding: 10px 12px;
-  text-align: left;
-  border-bottom: 1px solid #e0e0e0;
-  font-size: 14px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border);
 }
 
-.data-table th {
-  background-color: #f0f0f0;
+.campus-table th {
   font-weight: 600;
-  color: #2c3e50;
+  color: var(--text);
 }
 
-.data-table tr:hover {
-  background-color: #f9f9f9;
+.campus-table tbody tr:hover {
+  background: rgba(0, 0, 0, 0.03);
 }
 
-/* Status badges */
+/* ===============================
+   STATUS BADGE (READ ONLY)
+================================ */
 .status {
-  padding: 4px 8px;
-  border-radius: 12px;
+  padding: 4px 12px;
+  border-radius: 20px;
   font-size: 12px;
+  font-weight: 600;
+  pointer-events: none;
+  user-select: none;
+}
+
+.status-active {
+  background: var(--success);
   color: #fff;
-  text-transform: capitalize;
+}
+
+.status-inactive {
+  background: var(--danger);
+  color: #fff;
+}
+
+/* ===============================
+   ACTION BUTTON
+================================ */
+.btn-icon {
+  border: none;
+  background: none;
   cursor: pointer;
+  font-size: 15px;
 }
 
-.status.active {
-  background-color: #27ae60;
+.btn-icon.edit {
+  color: var(--primary);
 }
 
-.status.inactive {
-  background-color: #c0392b;
+.btn-icon.edit:hover {
+  color: var(--primary-hover);
 }
 
-/* ===================== Responsive ===================== */
-@media (max-width: 768px) {
-  .form-row {
-    flex-direction: column;
+/* ===============================
+   MODAL
+================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  background: var(--card-bg);
+  width: 400px;
+  border-radius: 8px;
+  animation: fadeIn 0.25s ease-in-out;
+  color: var(--text);
+}
+
+.modal-box h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.modal-box label {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.modal-box input,
+.modal-box select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  margin-bottom: 15px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ===============================
+   MODAL ACTIONS
+================================ */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-actions .btn.save {
+  background: var(--primary);
+  color: #fff;
+}
+
+.modal-actions .btn.save:hover {
+  background: var(--primary-hover);
+}
+
+/* CLOSE BUTTON UPDATED */
+.modal-actions button:not(.save) {
+  background: var(--close-bg);
+  color: #fff;
+}
+
+.modal-actions button:not(.save):hover {
+  background: var(--close-hover);
+}
+
+/* ===============================
+   ANIMATION
+================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-  .form-group.align-end {
-    align-items: flex-start;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
