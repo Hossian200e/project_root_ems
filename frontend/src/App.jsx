@@ -33,6 +33,7 @@ import SubjectSubType from "./admin/globalConfigurations/instituteSetup/subjectS
 import ClassSubjects from "./admin/globalConfigurations/instituteSetup/classSubjects";
 import BackgroundUpload from "./admin/globalConfigurations/instituteSetup/backgroundUpload";
 import DesignationSetup from "./admin/globalConfigurations/instituteSetup/designationSetup";
+import PaymentGatewayAPI from "./admin/globalConfigurations/instituteSetup/paymentGatewayAPI";
 
 function App() {
   // 🌙 Light/Dark Mode State
@@ -79,6 +80,7 @@ function App() {
           <Route path="/classSubjects" element={<ClassSubjects />} />
           <Route path="/backgroundUpload" element={<BackgroundUpload />} />
           <Route path="/designationSetup" element={<DesignationSetup />} />
+          <Route path="/paymentGatewayAPI" element={<PaymentGatewayAPI />} />
         </Route>
 
         {/* Student routes */}

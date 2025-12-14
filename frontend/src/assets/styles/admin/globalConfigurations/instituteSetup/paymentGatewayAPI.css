@@ -1,0 +1,230 @@
+/* -------------------------------
+   Reset & Global
+------------------------------- */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: #f5f5f5;
+}
+
+/* -------------------------------
+   Breadcrumb
+------------------------------- */
+.breadcrumb {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.breadcrumb a {
+  text-decoration: none;
+  color: #007bff;
+}
+.breadcrumb span {
+  margin: 0 5px;
+}
+
+/* -------------------------------
+   Page Header & Action
+------------------------------- */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.page-header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+.btn.primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.btn.primary:hover {
+  background-color: #0062cc;
+}
+
+/* -------------------------------
+   Search Box
+------------------------------- */
+.action-bar {
+  margin-bottom: 15px;
+}
+.search-box {
+  width: 100%;
+  max-width: 300px;
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* -------------------------------
+   Data Table
+------------------------------- */
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 10px;
+}
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.data-table th, .data-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  font-size: 14px;
+}
+.data-table th {
+  background-color: #f0f0f0;
+}
+.no-data {
+  text-align: center;
+  color: #888;
+}
+
+/* -------------------------------
+   Table Footer
+------------------------------- */
+.table-footer {
+  font-size: 14px;
+  color: #555;
+  margin-top: 5px;
+}
+
+/* -------------------------------
+   Buttons
+------------------------------- */
+.btn-icon {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-right: 5px;
+}
+.btn-icon.active {
+  color: #28a745;
+}
+.btn-icon.inactive {
+  color: #dc3545;
+}
+.btn.cancel {
+  background: var(--danger);
+  color: #fff;
+  margin-right: 10px;
+}
+.btn.save {
+  background: #007bff;
+  color: #fff;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn.cancel:hover,
+.btn.save:hover {
+  filter: brightness(0.9);
+}
+
+
+/* -------------------------------
+   Modal
+------------------------------- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px 10px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.modal-box {
+  background: #fff;
+  width: 100%;
+  max-width: 650px;
+  border-radius: 10px;
+  padding: 20px 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  position: relative;
+}
+.modal-box h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+.modal-box h4 {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* -------------------------------
+   Form Layout in Modal
+------------------------------- */
+.modal-box label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+.modal-box input[type="text"],
+.modal-box input[type="file"],
+.modal-box select {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.modal-box textarea {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  min-height: 50px;
+  resize: vertical;
+}
+
+/* -------------------------------
+   Modal Buttons
+------------------------------- */
+.modal-box .btn {
+  margin-top: 15px;
+}
+
+/* -------------------------------
+   Responsive Scroll
+------------------------------- */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .modal-box {
+    width: 95%;
+    padding: 15px 20px;
+  }
+  .data-table th, .data-table td {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+}
