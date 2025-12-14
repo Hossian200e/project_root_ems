@@ -30,6 +30,7 @@ import SectionSetup from "./admin/globalConfigurations/instituteSetup/sectionSet
 import SubjectSetup from "./admin/globalConfigurations/instituteSetup/subjectSetup";
 import SessionSetup from "./admin/globalConfigurations/instituteSetup/sessionSetup";
 import SubjectSubType from "./admin/globalConfigurations/instituteSetup/subjectSubType";
+import ClassSubjects from "./admin/globalConfigurations/instituteSetup/classSubjects";
 
 function App() {
   // 🌙 Light/Dark Mode State
@@ -73,6 +74,7 @@ function App() {
           <Route path="/subjectSetup" element={<SubjectSetup />} />
           <Route path="/sessionSetup" element={<SessionSetup />} />
           <Route path="/subjectSubType" element={<SubjectSubType />} />
+          <Route path="/classSubjects" element={<ClassSubjects />} />
         </Route>
 
         {/* Student routes */}

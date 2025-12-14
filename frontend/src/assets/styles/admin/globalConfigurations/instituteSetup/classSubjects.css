@@ -1,0 +1,204 @@
+/* ================= ROOT VARIABLES ================= */
+:root {
+  --primary: #2563eb;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --warning: #facc15;
+  --border: #e5e7eb;
+  --bg: #f9fafb;
+  --text: #111827;
+  --muted: #6b7280;
+}
+
+/* ================= GENERAL ================= */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+}
+
+/* ================= MAIN CONTENT ================= */
+.main-content-professional {
+  padding: 20px 40px;
+}
+
+/* ================= BREADCRUMB ================= */
+.breadcrumb-professional {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.breadcrumb-professional span {
+  margin: 0 6px;
+}
+
+/* ================= PAGE TITLE ================= */
+.page-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* ================= FILTER PANEL ================= */
+.filter-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.form-row-professional {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.form-group-professional {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group-professional label {
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.form-group-professional select,
+.form-group-professional input {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: border 0.2s;
+}
+
+.form-group-professional select:focus,
+.form-group-professional input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* ================= BUTTONS ================= */
+.btn-professional {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.show-btn {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.show-btn:hover {
+  background-color: #1366d6;
+}
+
+.submit-btn {
+  background-color: var(--success);
+  color: #fff;
+}
+
+.submit-btn:hover {
+  background-color: #1e8449;
+}
+
+.remove-btn-professional {
+  background-color: var(--danger);
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.remove-btn-professional:hover {
+  background-color: #c0392b;
+}
+
+/* ================= DUAL TABLE ================= */
+.dual-table-container-professional {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.table-card-professional {
+  flex: 1 1 500px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.data-table-professional {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.data-table-professional th,
+.data-table-professional td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.data-table-professional th {
+  background-color: #f1f3f6;
+  font-weight: 600;
+}
+
+.data-table-professional tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* ================= CHECKBOXES (Subject Type) ================= */
+.subject-type-checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.subject-type-checkboxes label {
+  margin-right: 10px;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+/* ================= FORM ACTIONS ================= */
+.form-actions-professional {
+  margin-top: 15px;
+  text-align: right;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .dual-table-container-professional {
+    flex-direction: column;
+  }
+
+  .table-card-professional {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-row-professional {
+    flex-direction: column;
+  }
+
+  .data-table-professional th,
+  .data-table-professional td {
+    font-size: 12px;
+  }
+}
