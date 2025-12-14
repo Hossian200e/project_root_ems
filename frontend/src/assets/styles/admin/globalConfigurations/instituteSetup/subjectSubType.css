@@ -1,0 +1,325 @@
+/* ================= ROOT VARIABLES ================= */
+:root {
+  --primary: #2563eb;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --warning: #facc15;
+  --border: #e5e7eb;
+  --bg: #f9fafb;
+  --text: #111827;
+  --muted: #6b7280;
+}
+
+/* ================= PAGE ================= */
+.main-content {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Poppins", sans-serif;
+}
+
+/* ================= BREADCRUMB ================= */
+.breadcrumb {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.breadcrumb span {
+  margin: 0 6px;
+}
+
+/* ================= TITLES ================= */
+h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* ================= FORM ROW ================= */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group input,
+.form-group select {
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 14px;
+  background: #fff;
+  transition: border 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.form-group label {
+  font-size: 13px;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.required {
+  color: var(--danger);
+}
+
+.align-end {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+/* ================= TABLE ACTION BUTTONS ================= */
+
+
+.data-table td .btn-edit {
+  background: var(--warning);
+  color: #000;
+}
+
+.data-table td .btn-edit:hover {
+  opacity: 0.85;
+}
+
+.data-table td .btn-delete {
+  background: var(--danger);
+  color: #fff;
+}
+
+.data-table td .btn-delete:hover {
+  opacity: 0.85;
+}
+
+/* Optional: center action column */
+.data-table td:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px; /* spacing between buttons */
+}
+    
+
+/* ================= TABLE ================= */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.data-table thead {
+  background: #f3f4f6;
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.data-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+/* ================= STATUS BADGES ================= */
+.status {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+}
+
+.status.active {
+  background: var(--success);
+  color: #fff;
+}
+
+.status.inactive {
+  background: var(--danger);
+  color: #fff;
+}
+
+/* ================= EMPTY STATE ================= */
+.empty-state {
+  text-align: center;
+  padding: 20px;
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  margin-top: 12px;
+  background: #fff;
+}
+
+.empty-state p {
+  margin-bottom: 10px;
+  color: var(--muted);
+}
+
+/* ================= MODAL ================= */
+/* ================= MODAL TABLE ================= */
+.modal-box table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 14px;
+  margin-top: 12px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.modal-box thead {
+  background: #2563eb; /* primary color for header */
+  color: #fff;
+}
+
+.modal-box th,
+.modal-box td {
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.modal-box tbody tr {
+  background: #fff;
+  transition: background 0.3s;
+}
+
+.modal-box tbody tr:nth-child(even) {
+  background: #f3f4f6; /* subtle alternate row color */
+}
+
+.modal-box tbody tr:hover {
+  background: #e0e7ff; /* hover highlight */
+}
+
+.modal-box th {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.modal-box td {
+  font-size: 13px;
+  color: #111827;
+}
+
+/* Optional: action buttons inside modal table */
+.modal-box td .btn-edit {
+  background: #facc15; /* professional yellow */
+  color: #000;
+  border-radius: 4px;
+  padding: 4px 8px;
+  transition: all 0.3s;
+}
+
+.modal-box td .btn-edit:hover {
+  background: #d4b015;
+}
+
+.modal-box td .btn-delete {
+  background: #dc2626; /* professional red */
+  color: #fff;
+  border-radius: 4px;
+  padding: 4px 5px;
+  transition: all 0.3s;
+}
+
+.modal-box td .btn-delete:hover {
+  background: #b91c1c;
+}
+
+
+.modal-actions .btn.cancel {
+  background: var(--danger); /* red color */
+  color: #fff;
+  margin-right: 8px;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.modal-actions .btn.cancel:hover {
+  background: #b91c1c; /* darker red on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.modal-actions .btn.save {
+  background: var(--primary);
+}
+
+.modal-actions .btn.save:hover {
+  background: #2e59d9;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .data-table {
+    font-size: 12px;
+  }
+
+  .modal-box {
+    width: 95%;
+  }
+}
+/* ================= PROFESSIONAL BUTTONS ================= */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Search Button */
+.form-row .align-end button {
+  background: var(--primary);
+  color: #fff;
+}
+
+.form-row .align-end button:hover {
+  background: #1e40af; /* darker shade */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Add New Button */
+div[style*="text-align: right"] > button,
+.empty-state button {
+  background: #16a34a; /* success color */
+  color: #fff;
+}
+
+div[style*="text-align: right"] > button:hover,
+.empty-state button:hover {
+  background: #15803d; /* darker success */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
