@@ -1,0 +1,218 @@
+/* ===============================
+   GLOBAL WRAPPER
+================================ */
+.main-content {
+  font-family: "Poppins", sans-serif;
+  background: #f4f6f9;
+}
+
+/* ===============================
+   BREADCRUMB
+================================ */
+.breadcrumb {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.breadcrumb a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* ===============================
+   HEADER
+================================ */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.page-header h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ===============================
+   SEARCH BOX
+================================ */
+.action-bar {
+  margin-bottom: 15px;
+}
+
+.search-box {
+  padding: 8px 12px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* ===============================
+   TABLE
+================================ */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.data-table th,
+.data-table td {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.data-table th {
+  background: #f5f6fa;
+  font-weight: 600;
+}
+
+.data-table tr:hover {
+  background: #fafafa;
+}
+
+.no-data {
+  text-align: center;
+  color: #888;
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+.btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn.primary {
+  background: #007bff;
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background: #005ec2;
+}
+
+
+.btn-icon.view {
+  background: #17a2b8;
+}
+
+.btn-icon.view:hover {
+  background: #117a8b;
+}
+
+.btn-icon.edit {
+  background: #ffc107;
+  color: #333;
+}
+
+.btn-icon.edit:hover {
+  background: #d39e00;
+}
+
+.btn-icon.delete {
+  background: #dc3545;
+}
+
+.btn-icon.delete:hover {
+  background: #a71d2a;
+}
+/* ===============================
+   TABLE FOOTER
+================================ */
+.table-footer {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #666;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #999;
+}
+
+.close:hover {
+  color: #333;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.form-actions {
+  text-align: right;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .data-table {
+    font-size: 12px;
+  }
+}

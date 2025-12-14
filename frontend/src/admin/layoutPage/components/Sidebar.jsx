@@ -103,6 +103,7 @@ const Sidebar = () => {
                       <li><Link to="/SubjectSubType" className="menu-link">Subject Sub Type</Link></li>
                       <li><Link to="/ClassSubjects" className="menu-link">Class Subjects </Link></li>
                       <li><Link to="/BackgroundUpload" className="menu-link">Background Upload  </Link></li>
+                      <li><Link to="/designationSetup" className="menu-link">Designation Setup  </Link></li>
                       <li><Link to="/PaymentGatewayAPI" className="menu-link">Payment Gateway API  </Link></li>
                       <li><Link to="/GatewayChargeConfig" className="menu-link">Payment Gateway Charge  </Link></li>
                     </ul>
