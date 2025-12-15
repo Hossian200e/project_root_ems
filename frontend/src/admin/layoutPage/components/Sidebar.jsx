@@ -105,11 +105,11 @@ const Sidebar = () => {
                       <li><Link to="/BackgroundUpload" className="menu-link">Background Upload  </Link></li>
                       <li><Link to="/designationSetup" className="menu-link">Designation Setup  </Link></li>
                       <li><Link to="/PaymentGatewayAPI" className="menu-link">Payment Gateway API  </Link></li>
-                      <li><Link to="/GatewayChargeConfig" className="menu-link">Payment Gateway Charge  </Link></li>
+                      <li><Link to="/paymentGatewayCharge" className="menu-link">Payment Gateway Charge  </Link></li>
                     </ul>
                   )}
                 </li>
-                <li><a href="#">Global Settings</a></li>
+                <li><Link to="/globalSettings" className="menu-link">Global Settings</Link></li>
                 <li><a href="#">Clear Cache</a></li>
               </ul>
             )}

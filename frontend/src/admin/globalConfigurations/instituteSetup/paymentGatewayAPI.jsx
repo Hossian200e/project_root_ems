@@ -46,48 +46,48 @@ const modeOptions = ["Sandbox", "Production"];
 // Mapping API codes to fields to display
 const apiFieldsMap = {
   "Bkash": {
-    production: ["appKey", "appSecret", "username", "password"],
-    sandbox: ["appKey", "appSecret", "username", "password"],
+    production: ["App Key", "App Secret", "Username", "Password"],
+    sandbox: ["App Key", "App Secret", "Username", "Password"],
   },
   "Rupali Cash": {
-    production: ["Username (Merchant Wallet No.)", "password"],
-    sandbox: ["username", "password"],
+    production: ["Username (Merchant Wallet No.)", "Password (API Key)"],
+    sandbox: ["Username (Merchant Wallet No.)", "Password (API Key)"],
   },
   "DBBL": {
-    production: ["mode", "url", "username", "password", "clientIP", "paymentOptions"],
-    sandbox: ["mode", "url", "username", "password", "clientIP", "paymentOptions"],
+    production: ["Mode", "Username", "Password", "Client IP", "Select Payment Options"],
+    sandbox: ["Mode", "Username", "Password", "ClientIP", "Select Payment Options"],
   },
   "Nagad": {
-    production: ["appAccount", "merchantId", "merchantPrivateKey", "pgPublicKey"],
-    sandbox: ["appAccount", "merchantId", "merchantPrivateKey", "pgPublicKey"],
+    production: ["AppAccount", "MerchantId", "MerchantPrivateKey", "PGPublicKey"],
+    sandbox: ["AppAccount", "MerchantId", "MerchantPrivateKey", "PGPublicKey"],
   },
   "Ekpay": {
-    production: ["merchantId", "merchantRegKey", "macAddress"],
-    sandbox: ["merchantId", "merchantRegKey", "macAddress"],
+    production: ["MerchantId", "MerchantRegKey", "MacAddress"],
+    sandbox: ["MerchantId", "MerchantRegKey", "MacAddress"],
   },
   "Sonali Pay": {
-    production: ["username", "password", "authKey"],
-    sandbox: ["username", "password", "authKey"],
+    production: ["Username", "Password", "AuthKey"],
+    sandbox: ["Username", "Password", "AuthKey"],
   },
   "Upay": {
-    production: ["merchantId", "merchantKey", "merchantName", "merchantCode", "merchantCity", "merchantPhone"],
-    sandbox: ["merchantId", "merchantKey", "merchantName", "merchantCode", "merchantCity", "merchantPhone"],
+    production: ["MerchantId", "MerchantKey", "MerchantName", "MerchantCode", "MerchantCity", "MerchantPhone"],
+    sandbox: ["MerchantId", "MerchantKey", "MerchantName", "MerchantCode", "MerchantCity", "MerchantPhone"],
   },
   "Paystation": {
-    production: ["username", "password"],
-    sandbox: ["username", "password"],
+    production: ["Username", "Password"],
+    sandbox: ["Username", "Password"],
   },
   "Cellfin": {
-    production: ["merchantId", "password"],
-    sandbox: ["merchantId", "password"],
+    production: ["MerchantId", "Password"],
+    sandbox: ["MerchantId", "Password"],
   },
   "Tap": {
     production: [],
     sandbox: [],
   },
   "SSL Wireless": {
-    production: [],
-    sandbox: [],
+    production: ["StoreID", "StorePassword"],
+    sandbox:  ["StoreID", "StorePassword"],
   },
 };
 
