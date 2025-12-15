@@ -110,7 +110,27 @@ const Sidebar = () => {
                   )}
                 </li>
                 <li><Link to="/globalSettings" className="menu-link">Global Settings</Link></li>
-                <li><a href="#">Clear Cache</a></li>
+                <li>
+  <a
+    href="#"
+    onClick={(e) => {
+      e.preventDefault(); // prevent default link behavior
+      localStorage.clear(); // clear localStorage
+      sessionStorage.clear(); // clear sessionStorage if needed
+      // Optionally clear caches if using service workers
+      if ('caches' in window) {
+        caches.keys().then((names) => {
+          names.forEach((name) => caches.delete(name));
+        });
+      }
+      // Redirect to dashboard after clearing
+      window.location.href = "/AdminDashboard"; 
+    }}
+  >
+    Clear Cache
+  </a>
+</li>
+
               </ul>
             )}
           </li>
