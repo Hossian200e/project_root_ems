@@ -36,6 +36,8 @@ import DesignationSetup from "./admin/globalConfigurations/instituteSetup/design
 import PaymentGatewayAPI from "./admin/globalConfigurations/instituteSetup/paymentGatewayAPI";
 import PaymentGatewayCharge from "./admin/globalConfigurations/instituteSetup/paymentGatewayCharge";
 import GlobalSettings from "./admin/globalConfigurations/globalSettings";
+import AddSingleStudent from "./admin/studentSetup/addSingleStudent";
+import StudentList from "./admin/studentSetup/studentList";
 
 function App() {
   // 🌙 Light/Dark Mode State
@@ -85,6 +87,8 @@ function App() {
           <Route path="/paymentGatewayAPI" element={<PaymentGatewayAPI />} />
           <Route path="/paymentGatewayCharge" element={<PaymentGatewayCharge />} />
           <Route path="/globalSettings" element={<GlobalSettings />} />
+          <Route path="/addSingleStudent" element={<AddSingleStudent />} />
+          <Route path="/studentList" element={<StudentList />} />
         </Route>
 
         {/* Student routes */}

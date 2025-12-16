@@ -1,0 +1,145 @@
+.student-list-page {
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.filters select,
+.filters input {
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.student-table th,
+.student-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.student-table th {
+  background-color: #f5f5f5;
+}
+
+.student-table img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.table-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.table-top .entries select,
+.table-top .search input {
+  padding: 5px 8px;
+  font-size: 14px;
+}
+
+.table-top .entries label {
+  font-size: 14px;
+}
+
+.table-top .search input {
+  width: 200px;
+}
+
+/* Action icons */
+.action-icons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.action-icons .icon {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.action-icons .view-icon {
+  color: #1e90ff;
+}
+
+.action-icons .edit-icon {
+  color: #28a745;
+}
+
+.action-icons .icon:hover {
+  opacity: 0.7;
+}
+
+/* Pagination */
+.pagination-container {
+  display: flex;
+  justify-content: flex-end; /* Right align pagination */
+  margin-top: 20px;
+}
+
+.pagination {
+  display: flex;
+  gap: 5px;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.pagination button.active {
+  background-color: #4caf50;
+  color: white;
+  border-color: #4caf50;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+.student-table img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ccc;
+}
+.action-icons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.action-icons .icon {
+  cursor: pointer;
+  font-size: 16px;
+}
+.action-icons .view-icon { color: #1e90ff; }
+.action-icons .edit-icon { color: #28a745; }
+.action-icons .icon:hover { opacity: 0.7; }
+
+/* Pagination right aligned */
+.pagination-container { display: flex; justify-content: flex-end; margin-top: 15px; }

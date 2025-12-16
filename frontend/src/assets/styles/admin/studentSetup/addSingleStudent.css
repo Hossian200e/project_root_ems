@@ -1,0 +1,214 @@
+/* ===================== MAIN CONTENT ===================== */
+.main-content {
+  background: #f7f7f7;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===================== FORM ===================== */
+.student-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ===================== SECTION (REPLACE CARD) ===================== */
+.section,
+.section-wrapper {
+  width: 100%;
+  background: #ffffff;
+  padding: 20px 24px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+/* ===================== SECTION HEADER ===================== */
+.section-header {
+  margin-bottom: 18px;
+}
+
+.section-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.section-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* RIGHT SIDE SUBTITLE */
+.section-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  text-align: right;
+  max-width: 50%;
+}
+
+/* ===================== GRID (2–3 FIELDS PER ROW) ===================== */
+.form-grid-multi {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px 20px;
+  width: 100%;
+}
+
+/* ===================== FORM GROUP ===================== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.form-group label.required::after {
+  content: " *";
+  color: red;
+}
+
+/* ===================== INPUTS ===================== */
+.form-control {
+  width: 100%;
+  padding: 9px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* ===================== TEXTAREA ===================== */
+.textarea {
+  min-height: 70px;
+  resize: vertical;
+}
+
+/* ===================== FULL WIDTH ===================== */
+.full-width {
+  grid-column: 1 / -1;
+}
+
+/* ===================== READONLY ===================== */
+.readonly {
+  background-color: #f3f3f3;
+  cursor: not-allowed;
+}
+
+/* ===================== CHECKBOX ===================== */
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #ccc;
+  border-radius: 4px;
+  accent-color: #007bff; /* modern color for check */
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.checkbox-wrapper input[type="checkbox"]:hover {
+  border-color: #007bff;
+  background-color: #f0f8ff;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+/* ===================== DIVIDER ===================== */
+.section-divider {
+  font-size: 15px;
+  font-weight: 600;
+  color: #444;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #ddd;
+  margin: 20px 0 10px;
+}
+
+/* ===================== SUBMIT BUTTON ===================== */
+.submit-btn {
+  align-self: flex-start;
+  padding: 12px 36px;
+  background: #007bff;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #0056b3;
+}
+.qualification-table {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
+}
+
+.table-row {
+  display: contents;
+}
+
+.table-header div {
+  font-weight: bold;
+  text-align: center;
+  padding: 8px 4px;
+  border-bottom: 2px solid #ccc;
+}
+
+.table-input {
+  width: 100%;
+  padding: 6px 8px;
+  box-sizing: border-box;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1024px) {
+  .form-grid-multi {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-subtitle {
+    max-width: 100%;
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-grid-multi {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
