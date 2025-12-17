@@ -335,7 +335,7 @@ const ProfileSetup = () => {
 
         {/* SUBMIT BUTTON */}
 
-        <button type="submit" className="btn-submit">Save Changes</button>
+        <button type="submit" className="btn-submit">Save</button>
       </form>
     </div>
   );
