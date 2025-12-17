@@ -180,7 +180,7 @@
 .form-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
+
 }
 
 .form-group label {
@@ -189,7 +189,7 @@
 }
 
 .form-group input {
-  padding: 8px 10px;
+
   border-radius: 6px;
   border: 1px solid #ccc;
   font-size: 14px;

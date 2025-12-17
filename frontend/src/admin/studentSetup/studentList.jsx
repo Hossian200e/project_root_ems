@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { FaEdit, FaEye, FaTimes } from "react-icons/fa"; // Add close icon
+import { FaEdit, FaEye } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
+import QRCode from "qrcode";
 import "../../assets/styles/admin/studentSetup/studentList.css";
 
 const StudentList = () => {
+  const navigate = useNavigate();
+
   const [students, setStudents] = useState([]);
   const [filteredStudents, setFilteredStudents] = useState([]);
   const [filters, setFilters] = useState({
@@ -16,11 +22,6 @@ const StudentList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [entriesPerPage, setEntriesPerPage] = useState(10);
 
-  // Modal state
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalStudent, setModalStudent] = useState(null);
-  const [modalType, setModalType] = useState(""); // "view" or "edit"
-
   const eduLevels = ["School", "College"];
   const departments = ["Science", "Humanities", "Business Studies", "Default"];
   const classes = ["Eight", "Nine", "Ten"];
@@ -30,7 +31,7 @@ const StudentList = () => {
   const studentData = Array.from({ length: 50 }, (_, i) => ({
     id: i + 1,
     studentId: `24020${i.toString().padStart(3, "0")}`,
-    regNo: "",
+    regNo: `REG${i + 1}`,
     session: i % 2 === 0 ? "2024-2025" : "2025",
     image: `https://i.pravatar.cc/80?img=${i + 1}`,
     name: `Student ${i + 1}`,
@@ -41,6 +42,40 @@ const StudentList = () => {
     department: departments[i % 4],
     section: sections[i % 3],
     contact: `0170000${(i + 1000).toString().slice(-7)}`,
+    formData: {
+      fullNameBangla: "নাম",
+      birthRegNo: "1234567890",
+      dob: "2008-01-01",
+      nationality: "Bangladeshi",
+      country: "Bangladesh",
+      religion: "Islam",
+      bloodGroup: "A+",
+      gender: "Male",
+      maritalStatus: "Unmarried",
+      email: `student${i + 1}@email.com`,
+      fatherName: "Father Name",
+      fatherPhone: "01711111111",
+      motherName: "Mother Name",
+      motherPhone: "01722222222",
+      guardianName: "Guardian Name",
+      guardianPhone: "01733333333",
+      roll: 70 + i,
+      session: i % 2 === 0 ? "2024-2025" : "2025",
+      hostel: "Magura Hostel",
+      hostelRoom: "101",
+      hostelType: "Boys",
+      hostelFee: 5000,
+      paymentStatus: "Paid",
+      busNo: "Bus 12",
+      roadNo: "Road 5",
+      pickupPoint: "Stop A",
+      dropPoint: "Stop B",
+      transportType: "Bus",
+      driverName: "Driver Name",
+      driverContact: "01755555555",
+      transportFee: 3000,
+      transportPaymentStatus: "Paid",
+    },
   }));
 
   useEffect(() => {
@@ -57,7 +92,6 @@ const StudentList = () => {
   useEffect(() => {
     const filtered = students.filter((s) => {
       return (
-        (!filters.eduLevel || s.className === filters.eduLevel) &&
         (!filters.department || s.department === filters.department) &&
         (!filters.className || s.className === filters.className) &&
         (!filters.section || s.section === filters.section) &&
@@ -76,20 +110,139 @@ const StudentList = () => {
   const currentStudents = filteredStudents.slice(indexOfFirst, indexOfLast);
   const totalPages = Math.ceil(filteredStudents.length / entriesPerPage);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (page) => setCurrentPage(page);
 
-  // Open modal
-  const openModal = (student, type) => {
-    setModalStudent(student);
-    setModalType(type);
-    setModalOpen(true);
+  const handleEdit = (student) => {
+    navigate("/addSingleStudent", { state: { student } });
   };
 
-  // Close modal
-  const closeModal = () => {
-    setModalOpen(false);
-    setModalStudent(null);
-    setModalType("");
+  // === PDF Generation and Preview in new tab ===
+  const handleViewPDF = async (student) => {
+    const doc = new jsPDF("p", "pt", "a4");
+    const { formData } = student;
+    const pageWidth = doc.internal.pageSize.getWidth();
+    let y = 40;
+
+    // Header
+    doc.setFontSize(20);
+    doc.setTextColor("#0B5394");
+    doc.text("Student Detailed Information", pageWidth / 2, y, { align: "center" });
+    y += 30;
+
+    if (student.image) doc.addImage(student.image, "JPEG", pageWidth - 110, y - 20, 80, 80);
+
+    const drawSectionHeader = (title) => {
+      doc.setFillColor("#D9E1F2");
+      doc.setDrawColor("#0B5394");
+      doc.rect(20, y, pageWidth - 40, 20, "FD");
+      doc.setFontSize(14);
+      doc.setTextColor("#0B5394");
+      doc.text(title, 25, y + 15);
+      y += 30;
+    };
+
+    const drawField = (label, value) => {
+      doc.setFontSize(12);
+      doc.setTextColor("#000");
+      doc.text(`${label}:`, 25, y);
+      doc.text(`${value}`, 150, y);
+      y += 15;
+      if (y > 750) {
+        doc.addPage();
+        y = 40;
+      }
+    };
+
+    drawSectionHeader("Personal Information");
+    drawField("Student ID", student.studentId);
+    drawField("Name", formData.fullName || student.name);
+    drawField("Name (Bangla)", formData.fullNameBangla);
+    drawField("DOB", formData.dob);
+    drawField("Nationality", formData.nationality);
+    drawField("Country", formData.country);
+    drawField("Religion", formData.religion);
+    drawField("Blood Group", formData.bloodGroup);
+    drawField("Gender", formData.gender);
+    drawField("Email", formData.email);
+
+    drawSectionHeader("Family Information");
+    drawField("Father Name", formData.fatherName);
+    drawField("Father Phone", formData.fatherPhone);
+    drawField("Mother Name", formData.motherName);
+    drawField("Mother Phone", formData.motherPhone);
+    drawField("Guardian Name", formData.guardianName);
+    drawField("Guardian Phone", formData.guardianPhone);
+
+    drawSectionHeader("Academic Information");
+    autoTable(doc, {
+      startY: y,
+      head: [["Class", "Department", "Shift", "Medium", "Roll", "Session"]],
+      body: [[
+        student.className,
+        student.department,
+        student.shift,
+        student.medium,
+        formData.roll,
+        formData.session,
+      ]],
+      theme: "grid",
+      headStyles: { fillColor: "#D9E1F2", textColor: "#0B5394" },
+      alternateRowStyles: { fillColor: "#f5f5f5" },
+      styles: { fontSize: 12 },
+      didDrawPage: (data) => { y = data.cursor.y + 20; }
+    });
+
+    drawSectionHeader("Hostel Information");
+    autoTable(doc, {
+      startY: y,
+      head: [["Hostel", "Room", "Type", "Fee", "Payment Status"]],
+      body: [[
+        formData.hostel,
+        formData.hostelRoom,
+        formData.hostelType,
+        formData.hostelFee,
+        formData.paymentStatus
+      ]],
+      theme: "grid",
+      headStyles: { fillColor: "#D9E1F2", textColor: "#0B5394" },
+      alternateRowStyles: { fillColor: "#f5f5f5" },
+      styles: { fontSize: 12 },
+      didDrawPage: (data) => { y = data.cursor.y + 20; }
+    });
+
+    drawSectionHeader("Transport Information");
+    autoTable(doc, {
+      startY: y,
+      head: [["Bus No", "Road No", "Pickup", "Drop", "Type", "Driver", "Contact", "Fee", "Payment Status"]],
+      body: [[
+        formData.busNo,
+        formData.roadNo,
+        formData.pickupPoint,
+        formData.dropPoint,
+        formData.transportType,
+        formData.driverName,
+        formData.driverContact,
+        formData.transportFee,
+        formData.transportPaymentStatus
+      ]],
+      theme: "grid",
+      headStyles: { fillColor: "#D9E1F2", textColor: "#0B5394" },
+      alternateRowStyles: { fillColor: "#f5f5f5" },
+      styles: { fontSize: 12 },
+      didDrawPage: (data) => { y = data.cursor.y + 20; }
+    });
+
+    // Optional QR code
+    const qrUrl = await QRCode.toDataURL(`https://your-system.com/student/${student.studentId}`);
+    doc.addImage(qrUrl, "PNG", pageWidth - 110, 750, 80, 80);
+
+    doc.setFontSize(10);
+    doc.setTextColor("#888");
+    doc.text("Generated by EMS System", pageWidth / 2, 820, { align: "center" });
+
+    // ✅ Open PDF in new browser tab
+    const pdfBlobUrl = doc.output('bloburl');
+    window.open(pdfBlobUrl);
   };
 
   return (
@@ -98,50 +251,34 @@ const StudentList = () => {
 
       {/* Filters */}
       <div className="filters">
-        <select name="eduLevel" onChange={handleFilterChange} value={filters.eduLevel}>
-          <option value="">Select Edu. Level</option>
-          {eduLevels.map((e, i) => <option key={i} value={e}>{e}</option>)}
-        </select>
-        <select name="department" onChange={handleFilterChange} value={filters.department}>
+        <select name="department" value={filters.department} onChange={handleFilterChange}>
           <option value="">Select Department</option>
           {departments.map((d, i) => <option key={i} value={d}>{d}</option>)}
         </select>
-        <select name="className" onChange={handleFilterChange} value={filters.className}>
+        <select name="className" value={filters.className} onChange={handleFilterChange}>
           <option value="">Select Class</option>
           {classes.map((c, i) => <option key={i} value={c}>{c}</option>)}
         </select>
-        <select name="section" onChange={handleFilterChange} value={filters.section}>
+        <select name="section" value={filters.section} onChange={handleFilterChange}>
           <option value="">Select Section</option>
           {sections.map((s, i) => <option key={i} value={s}>{s}</option>)}
         </select>
-        <select name="session" onChange={handleFilterChange} value={filters.session}>
+        <select name="session" value={filters.session} onChange={handleFilterChange}>
           <option value="">Select Session</option>
           {sessions.map((s, i) => <option key={i} value={s}>{s}</option>)}
         </select>
       </div>
 
-      {/* Entries and Search */}
+      {/* Entries + Search */}
       <div className="table-top">
-        <div className="entries">
-          <label>
-            Show
-            <select
-              value={entriesPerPage}
-              onChange={(e) => setEntriesPerPage(Number(e.target.value))}
-            >
-              {[5, 10, 25, 50, 100].map((n) => <option key={n} value={n}>{n}</option>)}
-            </select>
-            entries
-          </label>
-        </div>
-        <div className="search">
-          <input
-            type="text"
-            placeholder="Search..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
+        <label>
+          Show
+          <select value={entriesPerPage} onChange={(e) => setEntriesPerPage(+e.target.value)}>
+            {[5, 10, 25, 50].map(n => <option key={n} value={n}>{n}</option>)}
+          </select>
+          entries
+        </label>
+        <input type="text" placeholder="Search..." value={search} onChange={(e) => setSearch(e.target.value)} />
       </div>
 
       {/* Table */}
@@ -150,17 +287,13 @@ const StudentList = () => {
           <tr>
             <th>SL</th>
             <th>Student ID</th>
-            <th>Registration Number</th>
-            <th>Session</th>
-            <th>Image</th>
-            <th>Student Name</th>
+            <th>Name</th>
             <th>Roll</th>
-            <th>Medium</th>
-            <th>Shift</th>
             <th>Class</th>
-            <th>Department/Subject</th>
+            <th>Department</th>
             <th>Section</th>
-            <th>Contact Number</th>
+            <th>Session</th>
+            <th>Contact</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -169,70 +302,34 @@ const StudentList = () => {
             <tr key={s.id}>
               <td>{indexOfFirst + i + 1}</td>
               <td>{s.studentId}</td>
-              <td>{s.regNo}</td>
-              <td>{s.session}</td>
-              <td><img src={s.image} alt={s.name} /></td>
               <td>{s.name}</td>
               <td>{s.roll}</td>
-              <td>{s.medium}</td>
-              <td>{s.shift}</td>
               <td>{s.className}</td>
               <td>{s.department}</td>
               <td>{s.section}</td>
+              <td>{s.session}</td>
               <td>{s.contact}</td>
               <td className="action-icons">
-                <FaEye className="icon view-icon" onClick={() => openModal(s, "view")} />
-                <FaEdit className="icon edit-icon" onClick={() => openModal(s, "edit")} />
+                <FaEye className="icon view-icon" onClick={() => handleViewPDF(s)} />
+                <FaEdit className="icon edit-icon" onClick={() => handleEdit(s)} />
               </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <p>
-        Showing {indexOfFirst + 1} to {Math.min(indexOfLast, filteredStudents.length)} of {filteredStudents.length} entries
-      </p>
-
       {/* Pagination */}
-      <div className="pagination-container">
-        <div className="pagination">
-          <button onClick={() => paginate(1)} disabled={currentPage === 1}>«</button>
-          <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>‹</button>
-          {Array.from({ length: totalPages }, (_, i) => (
-            <button
-              key={i}
-              className={currentPage === i + 1 ? "active" : ""}
-              onClick={() => paginate(i + 1)}
-            >
-              {i + 1}
-            </button>
-          ))}
-          <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === totalPages}>›</button>
-          <button onClick={() => paginate(totalPages)} disabled={currentPage === totalPages}>»</button>
-        </div>
+      <div className="pagination">
+        {Array.from({ length: totalPages }, (_, i) => (
+          <button
+            key={i}
+            className={currentPage === i + 1 ? "active" : ""}
+            onClick={() => paginate(i + 1)}
+          >
+            {i + 1}
+          </button>
+        ))}
       </div>
-
-      {/* Modal */}
-      {modalOpen && modalStudent && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <button className="modal-close" onClick={closeModal}><FaTimes /></button>
-            <h3>{modalType === "view" ? "View Student" : "Edit Student"}</h3>
-            <div className="modal-body">
-              <img src={modalStudent.image} alt={modalStudent.name} />
-              <p><strong>ID:</strong> {modalStudent.studentId}</p>
-              <p><strong>Name:</strong> {modalStudent.name}</p>
-              <p><strong>Roll:</strong> {modalStudent.roll}</p>
-              <p><strong>Class:</strong> {modalStudent.className}</p>
-              <p><strong>Department:</strong> {modalStudent.department}</p>
-              <p><strong>Session:</strong> {modalStudent.session}</p>
-              <p><strong>Contact:</strong> {modalStudent.contact}</p>
-              <p><strong>Medium:</strong> {modalStudent.medium}</p>
-              <p><strong>Shift:</strong> {modalStudent.shift}</p>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

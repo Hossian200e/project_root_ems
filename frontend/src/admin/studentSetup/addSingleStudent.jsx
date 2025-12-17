@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../assets/styles/admin/studentSetup/addSingleStudent.css";
+import { useLocation, useNavigate } from "react-router-dom";
+
 
 const AddSingleStudent = () => {
   const [formData, setFormData] = useState({
@@ -93,6 +95,21 @@ const AddSingleStudent = () => {
     transportFee: "",
     transportPaymentStatus: "",
   });
+const location = useLocation();
+const navigate = useNavigate();
+
+const editingStudent = location.state?.student || null;
+const isEditMode = Boolean(editingStudent);
+useEffect(() => {
+  if (isEditMode) {
+    setFormData((prev) => ({
+      ...prev,
+      ...editingStudent,
+      studentId: editingStudent.studentId, // keep original ID
+    }));
+  }
+}, [isEditMode, editingStudent]);
+
 
   const educationBoards = [
     { id: 1, board_name: "Dhaka" },
@@ -139,9 +156,12 @@ const AddSingleStudent = () => {
     }
   };
 
-  useEffect(() => {
+useEffect(() => {
+  if (!isEditMode) {
     generateStudentId();
-  }, []);
+  }
+}, [isEditMode]);
+
 
   useEffect(() => {
     const fetchDropdowns = async () => {
@@ -249,39 +269,63 @@ const handleChange = (e) => {
 };
 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const data = new FormData();
-      Object.entries(formData).forEach(([key, value]) => {
-        if (value !== null && value !== undefined) data.append(key, value);
-      });
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-      const res = await fetch("http://localhost:5000/api/students/add", {
-        method: "POST",
-        body: data,
-      });
-
-      const result = await res.json();
-      if (!res.ok) alert("Error: " + result.message);
-      else {
-        alert(result.message);
-        const resetData = Object.keys(formData).reduce((acc, k) => ({ ...acc, [k]: "" }), {});
-        setFormData(resetData);
-        generateStudentId();
+  try {
+    const data = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      if (value !== null && value !== undefined) {
+        data.append(key, value);
       }
-    } catch (err) {
-      console.error("Submit error:", err);
-      alert("Something went wrong. Check console.");
+    });
+
+    const url = isEditMode
+      ? `http://localhost:5000/api/students/update/${editingStudent.id}`
+      : "http://localhost:5000/api/students/add";
+
+    const method = isEditMode ? "PUT" : "POST";
+
+    const res = await fetch(url, {
+      method,
+      body: data,
+    });
+
+    const result = await res.json();
+
+    if (!res.ok) {
+      alert("Error: " + result.message);
+      return;
     }
-  };
+
+    alert(result.message);
+
+    if (!isEditMode) {
+      // reset only in ADD mode
+      const resetData = Object.keys(formData).reduce(
+        (acc, k) => ({ ...acc, [k]: "" }),
+        {}
+      );
+      setFormData(resetData);
+      generateStudentId();
+    } else {
+      // after update
+      navigate("/studentList");
+    }
+  } catch (err) {
+    console.error("Submit error:", err);
+    alert("Something went wrong. Check console.");
+  }
+};
+
 
   const safeMap = (arr, renderFn) => (Array.isArray(arr) ? arr.map(renderFn) : null);
 
   return (
     <div className="main-content">
       <div className="breadcrumb">
-        <a href="#">Dashboard</a> <span>›</span> Students Setup <span>›</span> Add Student
+        <a href="#">Dashboard</a> <span>›</span> Students Setup <span>›</span> {isEditMode ? "Edit Student" : "Add Student"}
+
       </div>
       
 
@@ -1016,11 +1060,14 @@ const handleChange = (e) => {
 <section className="section">
   <div className="section-header section-header-flex">
     <h3>Qualification Information</h3>
-    <p className="section-subtitle">Detailed academic qualifications of the student</p>
+    <p className="section-subtitle">
+      Detailed academic qualifications of the student
+    </p>
   </div>
 
   <div className="qualification-table">
-    {/* Table Header */}
+
+    {/* ================= TABLE HEADER ================= */}
     <div className="table-row table-header">
       <div>Exam Name</div>
       <div>Group / Division</div>
@@ -1034,75 +1081,133 @@ const handleChange = (e) => {
       <div>Education Board</div>
     </div>
 
-    {/* PSC Row */}
+    {/* ================= PSC ================= */}
     <div className="table-row">
       <div>PSC</div>
-      <input type="text" name="pscDivision" value={formData.pscDivision} onChange={handleChange} className="table-input" />
-      <input type="text" name="pscRoll" value={formData.pscRoll} onChange={handleChange} className="table-input" />
-      <input type="text" name="pscGpa" value={formData.pscGpa} onChange={handleChange} className="table-input" />
-      <input type="text" name="pscTotal" value={formData.pscTotal} onChange={handleChange} className="table-input" />
-      <input type="text" name="pscGpaWithout4th" value={formData.pscGpaWithout4th} onChange={handleChange} className="table-input" />
-      <input type="text" name="pscPassingYear" value={formData.pscPassingYear} onChange={handleChange} className="table-input" />
-      <input type="text" name="pscRegNo" value={formData.pscRegNo} onChange={handleChange} className="table-input" />
-      <input type="text" name="pscSession" value={formData.pscSession} onChange={handleChange} className="table-input" />
+
+      <select
+        name="pscDivision"
+        value={formData.pscDivision}
+        onChange={handleChange}
+        className="table-input"
+      >
+
+        <option value="None">None</option>
+      </select>
+
+      <input name="pscRoll" value={formData.pscRoll} onChange={handleChange} className="table-input" />
+      <input name="pscGpa" value={formData.pscGpa} onChange={handleChange} className="table-input" />
+      <input name="pscTotal" value={formData.pscTotal} onChange={handleChange} className="table-input" />
+      <input name="pscGpaWithout4th" value={formData.pscGpaWithout4th} onChange={handleChange} className="table-input" />
+      <input name="pscPassingYear" value={formData.pscPassingYear} onChange={handleChange} className="table-input" />
+      <input name="pscRegNo" value={formData.pscRegNo} onChange={handleChange} className="table-input" />
+      <input name="pscSession" value={formData.pscSession} onChange={handleChange} className="table-input" />
+
       <select name="pscBoard" value={formData.pscBoard} onChange={handleChange} className="table-input">
         <option value="">Select Board</option>
-        {safeMap(educationBoards, (b) => <option key={b.id} value={b.id}>{b.board_name}</option>)}
+        {safeMap(educationBoards, b => (
+          <option key={b.id} value={b.id}>{b.board_name}</option>
+        ))}
       </select>
     </div>
 
-    {/* JSC Row */}
+    {/* ================= JSC ================= */}
     <div className="table-row">
       <div>JSC</div>
-      <input type="text" name="jscDivision" value={formData.jscDivision} onChange={handleChange} className="table-input" />
-      <input type="text" name="jscRoll" value={formData.jscRoll} onChange={handleChange} className="table-input" />
-      <input type="text" name="jscGpa" value={formData.jscGpa} onChange={handleChange} className="table-input" />
-      <input type="text" name="jscTotal" value={formData.jscTotal} onChange={handleChange} className="table-input" />
-      <input type="text" name="jscGpaWithout4th" value={formData.jscGpaWithout4th} onChange={handleChange} className="table-input" />
-      <input type="text" name="jscPassingYear" value={formData.jscPassingYear} onChange={handleChange} className="table-input" />
-      <input type="text" name="jscRegNo" value={formData.jscRegNo} onChange={handleChange} className="table-input" />
-      <input type="text" name="jscSession" value={formData.jscSession} onChange={handleChange} className="table-input" />
+
+      <select
+        name="jscDivision"
+        value={formData.jscDivision}
+        onChange={handleChange}
+        className="table-input"
+      >
+
+        <option value="None">None</option>
+      </select>
+
+      <input name="jscRoll" value={formData.jscRoll} onChange={handleChange} className="table-input" />
+      <input name="jscGpa" value={formData.jscGpa} onChange={handleChange} className="table-input" />
+      <input name="jscTotal" value={formData.jscTotal} onChange={handleChange} className="table-input" />
+      <input name="jscGpaWithout4th" value={formData.jscGpaWithout4th} onChange={handleChange} className="table-input" />
+      <input name="jscPassingYear" value={formData.jscPassingYear} onChange={handleChange} className="table-input" />
+      <input name="jscRegNo" value={formData.jscRegNo} onChange={handleChange} className="table-input" />
+      <input name="jscSession" value={formData.jscSession} onChange={handleChange} className="table-input" />
+
       <select name="jscBoard" value={formData.jscBoard} onChange={handleChange} className="table-input">
         <option value="">Select Board</option>
-        {safeMap(educationBoards, (b) => <option key={b.id} value={b.id}>{b.board_name}</option>)}
+        {safeMap(educationBoards, b => (
+          <option key={b.id} value={b.id}>{b.board_name}</option>
+        ))}
       </select>
     </div>
 
-    {/* SSC Row */}
+    {/* ================= SSC ================= */}
     <div className="table-row">
       <div>SSC</div>
-      <input type="text" name="sscDivision" value={formData.sscDivision} onChange={handleChange} className="table-input" />
-      <input type="text" name="sscRoll" value={formData.sscRoll} onChange={handleChange} className="table-input" />
-      <input type="text" name="sscGpa" value={formData.sscGpa} onChange={handleChange} className="table-input" />
-      <input type="text" name="sscTotal" value={formData.sscTotal} onChange={handleChange} className="table-input" />
-      <input type="text" name="sscGpaWithout4th" value={formData.sscGpaWithout4th} onChange={handleChange} className="table-input" />
-      <input type="text" name="sscPassingYear" value={formData.sscPassingYear} onChange={handleChange} className="table-input" />
-      <input type="text" name="sscRegNo" value={formData.sscRegNo} onChange={handleChange} className="table-input" />
-      <input type="text" name="sscSession" value={formData.sscSession} onChange={handleChange} className="table-input" />
+
+      <select
+        name="sscDivision"
+        value={formData.sscDivision}
+        onChange={handleChange}
+        className="table-input"
+      >
+        <option value="">Select</option>
+        <option value="Science">Science</option>
+        <option value="Humanities">Humanities</option>
+        <option value="Business Studies">Business Studies</option>
+      </select>
+
+      <input name="sscRoll" value={formData.sscRoll} onChange={handleChange} className="table-input" />
+      <input name="sscGpa" value={formData.sscGpa} onChange={handleChange} className="table-input" />
+      <input name="sscTotal" value={formData.sscTotal} onChange={handleChange} className="table-input" />
+      <input name="sscGpaWithout4th" value={formData.sscGpaWithout4th} onChange={handleChange} className="table-input" />
+      <input name="sscPassingYear" value={formData.sscPassingYear} onChange={handleChange} className="table-input" />
+      <input name="sscRegNo" value={formData.sscRegNo} onChange={handleChange} className="table-input" />
+      <input name="sscSession" value={formData.sscSession} onChange={handleChange} className="table-input" />
+
       <select name="sscBoard" value={formData.sscBoard} onChange={handleChange} className="table-input">
         <option value="">Select Board</option>
-        {safeMap(educationBoards, (b) => <option key={b.id} value={b.id}>{b.board_name}</option>)}
+        {safeMap(educationBoards, b => (
+          <option key={b.id} value={b.id}>{b.board_name}</option>
+        ))}
       </select>
     </div>
 
-    {/* HSC Row */}
+    {/* ================= HSC ================= */}
     <div className="table-row">
       <div>HSC</div>
-      <input type="text" name="hscDivision" value={formData.hscDivision} onChange={handleChange} className="table-input" />
-      <input type="text" name="hscRoll" value={formData.hscRoll} onChange={handleChange} className="table-input" />
-      <input type="text" name="hscGpa" value={formData.hscGpa} onChange={handleChange} className="table-input" />
-      <input type="text" name="hscTotal" value={formData.hscTotal} onChange={handleChange} className="table-input" />
-      <input type="text" name="hscGpaWithout4th" value={formData.hscGpaWithout4th} onChange={handleChange} className="table-input" />
-      <input type="text" name="hscPassingYear" value={formData.hscPassingYear} onChange={handleChange} className="table-input" />
-      <input type="text" name="hscRegNo" value={formData.hscRegNo} onChange={handleChange} className="table-input" />
-      <input type="text" name="hscSession" value={formData.hscSession} onChange={handleChange} className="table-input" />
+
+      <select
+        name="hscDivision"
+        value={formData.hscDivision}
+        onChange={handleChange}
+        className="table-input"
+      >
+        <option value="">Select</option>
+        <option value="Science">Science</option>
+        <option value="Humanities">Humanities</option>
+        <option value="Business Studies">Business Studies</option>
+      </select>
+
+      <input name="hscRoll" value={formData.hscRoll} onChange={handleChange} className="table-input" />
+      <input name="hscGpa" value={formData.hscGpa} onChange={handleChange} className="table-input" />
+      <input name="hscTotal" value={formData.hscTotal} onChange={handleChange} className="table-input" />
+      <input name="hscGpaWithout4th" value={formData.hscGpaWithout4th} onChange={handleChange} className="table-input" />
+      <input name="hscPassingYear" value={formData.hscPassingYear} onChange={handleChange} className="table-input" />
+      <input name="hscRegNo" value={formData.hscRegNo} onChange={handleChange} className="table-input" />
+      <input name="hscSession" value={formData.hscSession} onChange={handleChange} className="table-input" />
+
       <select name="hscBoard" value={formData.hscBoard} onChange={handleChange} className="table-input">
         <option value="">Select Board</option>
-        {safeMap(educationBoards, (b) => <option key={b.id} value={b.id}>{b.board_name}</option>)}
+        {safeMap(educationBoards, b => (
+          <option key={b.id} value={b.id}>{b.board_name}</option>
+        ))}
       </select>
     </div>
+
   </div>
 </section>
+
 
 
 
@@ -1366,8 +1471,17 @@ const handleChange = (e) => {
   </div>
 </section>
 
+{/* === SUBMIT BUTTON === */}
+<div className="form-actions" style={{ textAlign: "right", marginTop: "20px" }}>
+  <button
+    type="submit"
+    className={`btn ${isEditMode ? "btn-warning" : "btn-primary"}`}
+  >
+    {isEditMode ? "Update Student" : "Add Student"}
+  </button>
+</div>
 
-        <button type="submit" className="submit-btn">Save Student</button>
+
       </form>
     </div>
   );
