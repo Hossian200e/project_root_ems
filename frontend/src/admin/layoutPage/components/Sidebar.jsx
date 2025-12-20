@@ -251,6 +251,19 @@ const Sidebar = () => {
                 <li><Link to="/StudentList" className="menu-link"> Students List</Link></li>
                 <li><Link to="/StudentListPrint" className="menu-link"> Students List Print</Link></li>
                 <li><Link to="/StudentBulkUpload" className="menu-link"> Student Bulk Upload</Link></li>
+                <li><Link to="/studentCategories" className="menu-link"> Student Categories</Link></li>
+                <li><Link to="/studentRollPrefix" className="menu-link"> Student Roll Prefix</Link></li>
+                <li><Link to="/studentCourseAdvising" className="menu-link"> Student Course Advising</Link></li>
+                <li><Link to="/bulkCourseAdvising" className="menu-link"> Bulk Course Advising</Link></li>
+                <li><Link to="/studentCountReport" className="menu-link"> Student Count Report</Link></li>
+                <li><Link to="/bulkStudentUpdate" className="menu-link"> Bulk Student Update</Link></li>
+                <li><Link to="/studentPromotion" className="menu-link"> Student Promotion</Link></li>
+                <li><Link to="/studentMigration" className="menu-link"> Student Migration</Link></li>
+                <li><Link to="/archiveStudents" className="menu-link">Archive Student</Link></li>
+                <li><Link to="/studentDetailsList" className="menu-link">Student Details List</Link></li>
+                <li><Link to="/studentImageDownload" className="menu-link"> Student Image Download</Link></li>
+                <li><Link to="/subjectWiseStudents" className="menu-link">Subject Wise Students</Link></li>
+                <li><Link to="/removeDuplicateStudents" className="menu-link">Remove Duplicate Students</Link></li>
               </ul>
             )}
           </li>

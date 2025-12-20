@@ -1,0 +1,119 @@
+.student-count-report {
+  font-family: "Poppins", sans-serif;
+  padding: 20px;
+  background: #f5f7fb;
+}
+
+.report-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.report-header .logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.report-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.report-header h3 {
+  margin: 5px 0 15px;
+  font-size: 18px;
+  color: #555;
+}
+
+.filters {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.filters label {
+  font-weight: 500;
+}
+
+.filters select {
+  margin-left: 5px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.show-btn,
+.print-btn {
+  padding: 6px 15px;
+  background-color: #0066cc;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.show-btn:hover,
+.print-btn:hover {
+  background-color: #005bb5;
+}
+
+.report-table {
+  margin-top: 20px;
+}
+
+.report-table h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.report-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.report-table th,
+.report-table td {
+  border: 1px solid #ccc;
+  padding: 8px 10px;
+  text-align: center;
+}
+
+.report-table th {
+  background-color: #e6e6e6;
+}
+
+.total-row {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+.grand-total-row {
+  font-weight: bold;
+  background-color: #dcdcdc;
+}
+
+/* Print Styles */
+@media print {
+  .filters,
+  .show-btn,
+  .print-btn {
+    display: none;
+  }
+
+  .student-count-report {
+    background: #fff;
+    padding: 0;
+  }
+
+  table {
+    page-break-inside: auto;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+}

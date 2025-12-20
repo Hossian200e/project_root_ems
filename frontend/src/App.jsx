@@ -38,6 +38,21 @@ import PaymentGatewayCharge from "./admin/globalConfigurations/instituteSetup/pa
 import GlobalSettings from "./admin/globalConfigurations/globalSettings";
 import AddSingleStudent from "./admin/studentSetup/addSingleStudent";
 import StudentList from "./admin/studentSetup/studentList";
+import StudentListPrint from "./admin/studentSetup/studentListPrint";
+import StudentBulkUpload from "./admin/studentSetup/studentBulkUpload";
+import StudentCategories from "./admin/studentSetup/studentCategories";
+import StudentRollPrefix from "./admin/studentSetup/studentRollPrefix";
+import StudentCourseAdvising from "./admin/studentSetup/studentCourseAdvising";
+import BulkCourseAdvising from "./admin/studentSetup/bulkCourseAdvising";
+import StudentCountReport from "./admin/studentSetup/studentCountReport";
+import BulkStudentUpdate from "./admin/studentSetup/bulkStudentUpdate";
+import StudentPromotion from "./admin/studentSetup/studentPromotion";
+import StudentMigration from "./admin/studentSetup/studentMigration";
+import ArchiveStudents from "./admin/studentSetup/archiveStudents";
+import StudentDetailsList from "./admin/studentSetup/studentDetailsList";
+import StudentImageDownload from "./admin/studentSetup/studentImageDownload";
+import SubjectWiseStudents from "./admin/studentSetup/subjectWiseStudents";
+import RemoveDuplicateStudents from "./admin/studentSetup/removeDuplicateStudents";
 
 function App() {
   // 🌙 Light/Dark Mode State
@@ -89,6 +104,21 @@ function App() {
           <Route path="/globalSettings" element={<GlobalSettings />} />
           <Route path="/addSingleStudent" element={<AddSingleStudent />} />
           <Route path="/studentList" element={<StudentList />} />
+          <Route path="/studentListPrint" element={<StudentListPrint />} />
+          <Route path="/studentBulkUpload" element={<StudentBulkUpload />} />
+          <Route path="/studentCategories" element={<StudentCategories />} />
+          <Route path="/studentRollPrefix" element={<StudentRollPrefix />} />
+          <Route path="/studentCourseAdvising" element={<StudentCourseAdvising />} />
+          <Route path="/bulkCourseAdvising" element={<BulkCourseAdvising />} />
+          <Route path="/studentCountReport" element={<StudentCountReport />} />
+          <Route path="/bulkStudentUpdate" element={<BulkStudentUpdate />} />
+          <Route path="/studentPromotion" element={<StudentPromotion />} />
+          <Route path="/studentMigration" element={<StudentMigration />} />
+          <Route path="/archiveStudents" element={<ArchiveStudents />} />
+          <Route path="/studentDetailsList" element={<StudentDetailsList />} />
+          <Route path="/studentImageDownload" element={<StudentImageDownload />} />
+          <Route path="/subjectWiseStudents" element={<SubjectWiseStudents />} />
+          <Route path="/removeDuplicateStudents" element={<RemoveDuplicateStudents />} />
         </Route>
 
         {/* Student routes */}

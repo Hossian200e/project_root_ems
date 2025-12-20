@@ -4,111 +4,156 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 
 const AddSingleStudent = () => {
-  const [formData, setFormData] = useState({
-    studentId: "",
-    fullName: "",
-    fullNameBangla: "",
-    birthRegNo: "",
-    dob: "",
-    nationality: "Bangladeshi",
-    country: "Bangladesh",
-    religion: "",
-    bloodGroup: "",
-    gender: "",
-    maritalStatus: "Unmarried",
-    email: "",
-    profilePic: null,
-    studyBreak: "",
-    fatherName: "",
-    fatherPhone: "",
-    isFatherGuardian: false,
-    fatherNID: "",
-    fatherPassport: "",
-    motherName: "",
-    motherPhone: "",
-    isMotherGuardian: false,
-    motherNID: "",
-    motherPassport: "",
-    guardianType: "Father",
-    guardianName: "",
-    guardianPhone: "",
-    guardianRelation: "",
-    studentPhone: "",
-    fatherOccupation: "",
-    quota: "",
-    fatherIncome: "",
-    guardianIncome: "",
-    fatherImage: null,
-    motherImage: null,
-    guardianImage: null,
-    presentAddress: "",
-    permanentAddress: "",
-    shift: "",
-    medium: "",
-    eduLevel: "",
-    department: "",
-    className: "",
-    section: "",
-    session: "",
-    roll: "",
-    regNo: "",
-    attendanceId: "",
-    admissionDate: "",
-    studentCategory: "",
-    oldStudentCode: "",
-    sscBoard: "",
-    sscRegNo: "",
-    hscBoard: "",
-    hscRegNo: "",
-    pscExamName: "",
-    pscDivision: "",
-    pscRoll: "",
-    pscGpa: "",
-    pscTotal: "",
-    pscGpaWithout4th: "",
-    pscPassingYear: "",
-    pscRegNo: "",
-    pscSession: "",
-    pscBoard: "",
-    jscExamName: "",
-    jscBoard: "",
-    sscDivision: "",
-    sscSession: "",
-    hscDivision: "",
-    hscSession: "",
-    hscBoard: "",
-    hostel: "",
-    hostelRoom: "",
-    allotmentDate: "",
-    hostelType: "",
-    hostelFee: "",
-    paymentStatus: "",
-    guardianPermission: "",
-    emergencyContact: "",
-    busNo: "",
-    roadNo: "",
-    pickupPoint: "",
-    dropPoint: "",
-    transportType: "",
-    driverName: "",
-    driverContact: "",
-    transportFee: "",
-    transportPaymentStatus: "",
-  });
+const initialState = {
+  // ===== Basic =====
+  studentId: "",
+  fullName: "",
+  fullNameBangla: "",
+  birthRegNo: "",
+  dob: "",
+  nationality: "Bangladeshi",
+  country: "Bangladesh",
+  religion: "",
+  bloodGroup: "",
+  gender: "",
+  maritalStatus: "Unmarried",
+  email: "",
+  studentPhone: "",
+  profilePic: null,
+  studyBreak: "",
+
+  // ===== Father =====
+  fatherName: "",
+  fatherPhone: "",
+  fatherNID: "",
+  fatherPassport: "",
+  fatherOccupation: "",
+  fatherIncome: "",
+  fatherImage: null,
+  isFatherGuardian: false,
+
+  // ===== Mother =====
+  motherName: "",
+  motherPhone: "",
+  motherNID: "",
+  motherPassport: "",
+  motherOccupation: "",
+  motherIncome: "",
+  motherImage: null,
+  isMotherGuardian: false,
+
+  // ===== Guardian =====
+  guardianType: "Father",
+  guardianName: "",
+  guardianPhone: "",
+  guardianRelation: "",
+  guardianIncome: "",
+  guardianImage: null,
+
+  // ===== Address =====
+  presentAddress: "",
+  permanentAddress: "",
+
+  // ===== Academic =====
+  shift: "",
+  medium: "",
+  eduLevel: "",
+  department: "",
+  className: "",
+  section: "",
+  session: "",
+  roll: "",
+  regNo: "",
+  attendanceId: "",
+  admissionDate: "",
+  studentCategory: "",
+  oldStudentCode: "",
+
+  // ===== PSC =====
+  pscDivision: "",
+  pscRoll: "",
+  pscGpa: "",
+  pscTotal: "",
+  pscGpaWithout4th: "",
+  pscPassingYear: "",
+  pscRegNo: "",
+  pscSession: "",
+  pscBoard: "",
+
+  // ===== JSC =====
+  jscDivision: "",
+  jscRoll: "",
+  jscGpa: "",
+  jscTotal: "",
+  jscGpaWithout4th: "",
+  jscPassingYear: "",
+  jscRegNo: "",
+  jscSession: "",
+  jscBoard: "",
+
+  // ===== SSC =====
+  sscDivision: "",
+  sscRoll: "",
+  sscGpa: "",
+  sscTotal: "",
+  sscGpaWithout4th: "",
+  sscPassingYear: "",
+  sscRegNo: "",
+  sscSession: "",
+  sscBoard: "",
+
+  // ===== HSC =====
+  hscDivision: "",
+  hscRoll: "",
+  hscGpa: "",
+  hscTotal: "",
+  hscGpaWithout4th: "",
+  hscPassingYear: "",
+  hscRegNo: "",
+  hscSession: "",
+  hscBoard: "",
+
+  // ===== Hostel =====
+  hostel: "",
+  hostelRoom: "",
+  allotmentDate: "",
+  hostelType: "",
+  hostelFee: "",
+  paymentStatus: "",
+  guardianPermission: "",
+  emergencyContact: "",
+
+  // ===== Transport =====
+  busNo: "",
+  roadNo: "",
+  pickupPoint: "",
+  dropPoint: "",
+  transportType: "",
+  driverName: "",
+  driverContact: "",
+  transportFee: "",
+  transportPaymentStatus: "",
+};
+const [formData, setFormData] = useState(initialState);
+
 const location = useLocation();
 const navigate = useNavigate();
 
 const editingStudent = location.state?.student || null;
 const isEditMode = Boolean(editingStudent);
 useEffect(() => {
-  if (isEditMode) {
+  if (isEditMode && editingStudent) {
     setFormData((prev) => ({
       ...prev,
       ...editingStudent,
-      studentId: editingStudent.studentId, // keep original ID
+      department: String(editingStudent.department_id || ""),
+      className: String(editingStudent.class_id || ""),
+      section: String(editingStudent.section_id || ""),
+      session: String(editingStudent.session_id || ""),
     }));
   }
 }, [isEditMode, editingStudent]);
+
 
 
   const educationBoards = [
@@ -199,20 +244,50 @@ useEffect(() => {
     fetchDropdowns();
   }, []);
 
-  useEffect(() => {
-    setFilteredClasses(classes.filter((c) => c.department_id == formData.department));
-    setFormData((prev) => ({ ...prev, className: "", section: "", session: "" }));
-  }, [formData.department, classes]);
+useEffect(() => {
+  setFilteredClasses(
+    classes.filter((c) => c.department_id == formData.department)
+  );
 
-  useEffect(() => {
-    setFilteredSections(sections.filter((s) => s.class_id == formData.className));
-    setFormData((prev) => ({ ...prev, section: "", session: "" }));
-  }, [formData.className, sections]);
+  if (!isEditMode) {
+    setFormData((prev) => ({
+      ...prev,
+      className: "",
+      section: "",
+      session: "",
+    }));
+  }
+}, [formData.department, classes, isEditMode]);
 
-  useEffect(() => {
-    setFilteredSessions(sessions.filter((s) => s.section_id == formData.section));
-    setFormData((prev) => ({ ...prev, session: "" }));
-  }, [formData.section, sessions]);
+useEffect(() => {
+  setFilteredSections(
+    sections.filter((s) => s.class_id == formData.className)
+  );
+
+  if (!isEditMode) {
+    setFormData((prev) => ({
+      ...prev,
+      section: "",
+      session: "",
+    }));
+  }
+}, [formData.className, sections, isEditMode]);
+
+useEffect(() => {
+  setFilteredSessions(
+    sessions.filter((s) => s.section_id == formData.section)
+  );
+
+  if (!isEditMode) {
+    setFormData((prev) => ({
+      ...prev,
+      session: "",
+    }));
+  }
+}, [formData.section, sessions, isEditMode]);
+
+
+
 
 const handleChange = (e) => {
   const { name, value, type, checked, files } = e.target;
@@ -302,12 +377,9 @@ const handleSubmit = async (e) => {
 
     if (!isEditMode) {
       // reset only in ADD mode
-      const resetData = Object.keys(formData).reduce(
-        (acc, k) => ({ ...acc, [k]: "" }),
-        {}
-      );
-      setFormData(resetData);
-      generateStudentId();
+setFormData(initialState);
+generateStudentId();
+
     } else {
       // after update
       navigate("/studentList");
@@ -318,6 +390,29 @@ const handleSubmit = async (e) => {
   }
 };
 
+useEffect(() => {
+  if (!isEditMode) return;
+
+  setFormData((prev) => {
+    let updated = { ...prev };
+
+    if (prev.guardianType === "Father") {
+      updated.isFatherGuardian = true;
+      updated.isMotherGuardian = false;
+      updated.guardianName = prev.fatherName;
+      updated.guardianPhone = prev.fatherPhone;
+    }
+
+    if (prev.guardianType === "Mother") {
+      updated.isMotherGuardian = true;
+      updated.isFatherGuardian = false;
+      updated.guardianName = prev.motherName;
+      updated.guardianPhone = prev.motherPhone;
+    }
+
+    return updated;
+  });
+}, [isEditMode]);
 
   const safeMap = (arr, renderFn) => (Array.isArray(arr) ? arr.map(renderFn) : null);
 
