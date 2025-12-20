@@ -1,0 +1,94 @@
+.teacher-course-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.teacher-course-filters {
+  margin-bottom: 20px;
+}
+
+.filter-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.filter-row label {
+  font-weight: 500;
+}
+
+.filter-row select, .filter-row button {
+  padding: 5px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.show-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.show-btn:hover {
+  background-color: #0056b3;
+}
+
+.advising-panel {
+  display: flex;
+  gap: 20px;
+}
+
+.left-panel, .right-panel {
+  flex: 1;
+  padding: 15px;
+  border: 1px solid #007bff;
+  border-radius: 6px;
+  background-color: #f1f9ff;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.course-block {
+  margin-bottom: 15px;
+}
+
+.section-block {
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+
+.subjects label {
+  display: block;
+}
+
+.allocated-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.allocated-table th, .allocated-table td {
+  border: 1px solid #007bff;
+  padding: 5px 10px;
+  text-align: left;
+}
+
+.allocated-table th {
+  background-color: #007bff;
+  color: white;
+}
+.submit-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #218838;
+}

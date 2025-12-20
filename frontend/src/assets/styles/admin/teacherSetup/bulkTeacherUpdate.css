@@ -1,0 +1,78 @@
+.bulk-teacher-update-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.bulk-teacher-update-container h2 {
+  text-align: center;
+  color: #007bff;
+  font-size: 26px;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.bulk-teacher-actions {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.download-btn {
+  padding: 10px 25px;
+  background-color: #28a745;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.download-btn:hover {
+  background-color: #218838;
+}
+
+.bulk-teacher-form .form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.bulk-teacher-form label {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.bulk-teacher-form input[type="file"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upload-btn {
+  width: 100%;
+  padding: 12px 0;
+  background-color: #ffc107;
+  color: #333;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.upload-btn:hover {
+  background-color: #e0a800;
+}
+
+@media (max-width: 768px) {
+  .bulk-teacher-update-container {
+    padding: 20px;
+  }
+}

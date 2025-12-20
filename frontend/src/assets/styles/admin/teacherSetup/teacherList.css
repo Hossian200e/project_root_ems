@@ -1,0 +1,110 @@
+.teacher-list-container {
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.teacher-list-container h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.teacher-list-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.teacher-list-controls select,
+.teacher-list-controls input {
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto; /* Horizontal scroll for full display */
+}
+
+.teacher-list-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1100px; /* Prevent shrinking */
+  margin-bottom: 15px;
+}
+
+.teacher-list-table th,
+.teacher-list-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  font-size: 14px;
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+.teacher-list-table th {
+  background-color: #f1f1f1;
+  font-weight: 600;
+}
+
+.action-btn {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #fff;
+}
+
+.action-btn.edit {
+  background-color: #28a745;
+}
+
+.action-btn.edit:hover {
+  background-color: #218838;
+}
+
+.action-btn.delete {
+  background-color: #dc3545;
+}
+
+.action-btn.delete:hover {
+  background-color: #c82333;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.pagination button.active,
+.pagination button:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.showing-info {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}

@@ -153,9 +153,9 @@ const Sidebar = () => {
 
                   {activeSubMenu === "Configurations" && (
                     <ul className="submenu sub-submenu">
-                      <li><a href="#">Transaction Type </a></li>
-                      <li><a href="#">Transaction Head</a></li>
-                      <li><a href="#">Fee Collection Template</a></li>
+                      <li><Link to="/transactionTypes" className="menu-link">Transaction Types</Link></li>
+                      <li><Link to="/transactionHead" className="menu-link">Transaction Head</Link></li>
+                      <li><Link to="/feeCollectionTemplate" className="menu-link">Fee Collection Template</Link></li>
                       <li><a href="#">Invoice Config.</a></li>
                       <li><a href="#">Discount Config.</a></li>
                       <li><a href="#">Account Closing</a></li>
@@ -233,8 +233,18 @@ const Sidebar = () => {
             </div>
             {activeMenu === "teacher" && (
               <ul className="submenu">
-                <li><a href="#">Add Teacher</a></li>
-                <li><a href="#">Teacher List</a></li>
+                <li><Link to="/addTeacher" className="menu-link">Add Teacher</Link></li>
+                <li><Link to="/bulkTeacherUpload" className="menu-link">Bulk Teacher Upload</Link></li>
+                <li><Link to="/bulkTeacherUpdate" className="menu-link">Bulk Teacher Update</Link></li>
+                <li><Link to="/teacherList" className="menu-link">Teacher List</Link></li>
+                <li><Link to="/departmentalHead" className="menu-link">Departmental Head</Link></li>
+                <li><Link to="/teacherCourseAdvising" className="menu-link">Teacher Course Advising</Link></li>
+                <li><Link to="/uploadLectureSheet" className="menu-link">Upload Lecture Sheet</Link></li>
+                <li><Link to="/teacherListPrint" className="menu-link">Teacher List Print</Link></li>
+                <li><Link to="/sectionTeacherAdvising" className="menu-link">Section Teacher Advising</Link></li>
+                <li><Link to="/lessonPlan" className="menu-link">Lesson Plan</Link></li>
+                <li><Link to="/teacherIDCard" className="menu-link">Teacher ID Card Print</Link></li>
+                <li><Link to="/classTeacherAccountantAllocation" className="menu-link">Class Teacher & Accountant Allocation</Link></li>
               </ul>
             )}
           </li>
@@ -264,6 +274,10 @@ const Sidebar = () => {
                 <li><Link to="/studentImageDownload" className="menu-link"> Student Image Download</Link></li>
                 <li><Link to="/subjectWiseStudents" className="menu-link">Subject Wise Students</Link></li>
                 <li><Link to="/removeDuplicateStudents" className="menu-link">Remove Duplicate Students</Link></li>
+                <li><Link to="/studentIDCard" className="menu-link">Student ID Card Print</Link></li>
+                <li><Link to="/studentToughtList" className="menu-link">Student Tought List</Link></li>
+                <li><Link to="/studentListWithCategoryWise" className="menu-link">Student List With Category Wise</Link></li>
+                <li><Link to="/showAllStudent" className="menu-link">Show All Student</Link></li>
               </ul>
             )}
           </li>

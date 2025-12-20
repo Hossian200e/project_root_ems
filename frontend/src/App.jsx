@@ -36,6 +36,9 @@ import DesignationSetup from "./admin/globalConfigurations/instituteSetup/design
 import PaymentGatewayAPI from "./admin/globalConfigurations/instituteSetup/paymentGatewayAPI";
 import PaymentGatewayCharge from "./admin/globalConfigurations/instituteSetup/paymentGatewayCharge";
 import GlobalSettings from "./admin/globalConfigurations/globalSettings";
+
+
+
 import AddSingleStudent from "./admin/studentSetup/addSingleStudent";
 import StudentList from "./admin/studentSetup/studentList";
 import StudentListPrint from "./admin/studentSetup/studentListPrint";
@@ -53,6 +56,31 @@ import StudentDetailsList from "./admin/studentSetup/studentDetailsList";
 import StudentImageDownload from "./admin/studentSetup/studentImageDownload";
 import SubjectWiseStudents from "./admin/studentSetup/subjectWiseStudents";
 import RemoveDuplicateStudents from "./admin/studentSetup/removeDuplicateStudents";
+import StudentIDCard from "./admin/studentSetup/studentIDCard";
+import StudentListWithCategoryWise from "./admin/studentSetup/studentListWithCategoryWise";
+import StudentToughtList from "./admin/studentSetup/studentToughtList";
+import ShowAllStudent from "./admin/studentSetup/showAllStudent";
+
+
+import AddTeacher from "./admin/teacherSetup/addTeacher";
+import BulkTeacherUpload from "./admin/teacherSetup/bulkTeacherUpload";
+import BulkTeacherUpdate from "./admin/teacherSetup/bulkTeacherUpdate";
+import TeacherList from "./admin/teacherSetup/teacherList";
+import DepartmentalHead from "./admin/teacherSetup/departmentalHead";
+import TeacherCourseAdvising from "./admin/teacherSetup/teacherCourseAdvising";
+import UploadLectureSheet from "./admin/teacherSetup/uploadLectureSheet";
+import TeacherListPrint from "./admin/teacherSetup/teacherListPrint";
+import SectionTeacherAdvising from "./admin/teacherSetup/sectionTeacherAdvising";
+import LessonPlan from "./admin/teacherSetup/lessonPlan";
+import TeacherIDCard from "./admin/teacherSetup/teacherIDCard";
+import ClassTeacherAccountantAllocation from "./admin/teacherSetup/classTeacherAccountantAllocation";
+
+
+import TransactionTypes from "./admin/accounts/configurations/transactionTypes";
+import TransactionHead from "./admin/accounts/configurations/transactionHead";
+import FeeCollectionTemplate from "./admin/accounts/configurations/feeCollectionTemplate";
+import CreateFeeCollectionTemplate from "./admin/accounts/configurations/createFeeCollectionTemplate";
+
 
 function App() {
   // 🌙 Light/Dark Mode State
@@ -102,6 +130,9 @@ function App() {
           <Route path="/paymentGatewayAPI" element={<PaymentGatewayAPI />} />
           <Route path="/paymentGatewayCharge" element={<PaymentGatewayCharge />} />
           <Route path="/globalSettings" element={<GlobalSettings />} />
+
+
+
           <Route path="/addSingleStudent" element={<AddSingleStudent />} />
           <Route path="/studentList" element={<StudentList />} />
           <Route path="/studentListPrint" element={<StudentListPrint />} />
@@ -119,6 +150,31 @@ function App() {
           <Route path="/studentImageDownload" element={<StudentImageDownload />} />
           <Route path="/subjectWiseStudents" element={<SubjectWiseStudents />} />
           <Route path="/removeDuplicateStudents" element={<RemoveDuplicateStudents />} />
+          <Route path="/studentIDCard" element={<StudentIDCard />} />
+          <Route path="/studentListWithCategoryWise" element={<StudentListWithCategoryWise />} />
+          <Route path="/studentToughtList" element={<StudentToughtList />} />
+          <Route path="/showAllStudent" element={<ShowAllStudent />} />
+
+
+          <Route path="/addTeacher" element={<AddTeacher />} />
+          <Route path="/bulkTeacherUpload" element={<BulkTeacherUpload />} />
+          <Route path="/bulkTeacherUpdate" element={<BulkTeacherUpdate />} />
+          <Route path="/teacherList" element={<TeacherList />} />
+          <Route path="/departmentalHead" element={<DepartmentalHead />} />
+          <Route path="/teacherCourseAdvising" element={<TeacherCourseAdvising />} />
+          <Route path="/uploadLectureSheet" element={<UploadLectureSheet />} />
+          <Route path="/teacherListPrint" element={<TeacherListPrint />} />
+          <Route path="/sectionTeacherAdvising" element={<SectionTeacherAdvising />} />
+          <Route path="/lessonPlan" element={<LessonPlan />} />
+          <Route path="/teacherIDCard" element={<TeacherIDCard />} />
+          <Route path="/classTeacherAccountantAllocation" element={<ClassTeacherAccountantAllocation />} />
+
+
+          <Route path="/transactionTypes"element={<TransactionTypes />}/>
+          <Route path="/transactionHead"element={<TransactionHead />}/>
+          <Route path="/feeCollectionTemplate"element={<FeeCollectionTemplate />}/>
+          <Route path="/feeCollectionTemplate/create" element={<CreateFeeCollectionTemplate />} />
+
         </Route>
 
         {/* Student routes */}

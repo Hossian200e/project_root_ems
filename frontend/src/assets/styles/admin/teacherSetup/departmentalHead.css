@@ -1,0 +1,47 @@
+.departmental-head-container {
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.departmental-head-container h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto; /* horizontal scroll if needed */
+}
+
+.departmental-head-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.departmental-head-table th,
+.departmental-head-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.departmental-head-table th {
+  background-color: #f1f1f1;
+  font-weight: 600;
+}
+
+.departmental-head-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.departmental-head-table tbody tr:hover {
+  background-color: #e9f5ff;
+}
