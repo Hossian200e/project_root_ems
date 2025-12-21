@@ -130,22 +130,17 @@ const handleCreateNew = () => {
                   </select>
                 </td>
                 <td className="action-btns">
-                  <button
-                    className="icon-btn view"
-                    onClick={() =>
-                      navigate(
-                        `/admin/accounts/fee-collection-template/${t.id}/templets`
-                      )
-                    }
-                  >
-                    Templets
-                  </button>
+<button
+  className="icon-btn view"
+  onClick={() => navigate("/feeCollectionTemplate/template")}
+>
+  Templets
+</button>
+
                   <button
                     className="icon-btn edit"
                     onClick={() =>
-                      navigate(
-                        `/admin/accounts/fee-collection-template/${t.id}/allocations`
-                      )
+                      navigate("/feeCollectionTemplate/allocations")
                     }
                   >
                     Allocations

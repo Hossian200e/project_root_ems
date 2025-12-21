@@ -1,0 +1,103 @@
+/* Container styling */
+.invoice-config-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+.breadcrumb {
+  margin-bottom: 15px;
+  color: #555;
+  font-size: 14px;
+}
+
+.page-header h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Invoice row styling */
+.invoice-config-table {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.invoice-row {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.invoice-row input {
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+
+/* Signatories */
+.signatories {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.signatory-field {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.add-btn,
+.remove-btn {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.remove-btn {
+  background-color: #dc3545;
+}
+
+.add-btn:hover,
+.remove-btn:hover {
+  opacity: 0.8;
+}
+
+/* Save & Add More Copy buttons */
+.save-btn-container {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.save-btn,
+.add-copy-btn {
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+.save-btn {
+  background-color: #28a745; /* green */
+}
+
+.add-copy-btn {
+  background-color: #17a2b8; /* teal */
+}
+
+.save-btn:hover,
+.add-copy-btn:hover {
+  opacity: 0.9;
+}

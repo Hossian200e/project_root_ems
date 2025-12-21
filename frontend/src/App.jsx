@@ -80,6 +80,13 @@ import TransactionTypes from "./admin/accounts/configurations/transactionTypes";
 import TransactionHead from "./admin/accounts/configurations/transactionHead";
 import FeeCollectionTemplate from "./admin/accounts/configurations/feeCollectionTemplate";
 import CreateFeeCollectionTemplate from "./admin/accounts/configurations/createFeeCollectionTemplate";
+import FeeCollectionTemplateList from "./admin/accounts/configurations/feeCollectionTemplateList";
+import FeeCollectionTemplateAllocations from "./admin/accounts/configurations/feeCollectionTemplateAllocations";
+import InvoiceConfigurationAllocate from "./admin/accounts/configurations/invoiceConfigurationAllocate";
+import InvoiceConfiguration from "./admin/accounts/configurations/invoiceConfiguration";
+import DiscountConfig from "./admin/accounts/configurations/discountConfig";
+import AddDiscount  from "./admin/accounts/configurations/addDiscount";
+import AccountClosing  from "./admin/accounts/configurations/accountClosing";
 
 
 function App() {
@@ -174,6 +181,14 @@ function App() {
           <Route path="/transactionHead"element={<TransactionHead />}/>
           <Route path="/feeCollectionTemplate"element={<FeeCollectionTemplate />}/>
           <Route path="/feeCollectionTemplate/create" element={<CreateFeeCollectionTemplate />} />
+          <Route path="/feeCollectionTemplate/template" element={<FeeCollectionTemplateList />} />
+          <Route path="/feeCollectionTemplate/allocations" element={<FeeCollectionTemplateAllocations />} />
+          <Route path="/feeCollectionTemplate/allocate" element={<InvoiceConfigurationAllocate />} />
+          <Route path="/invoiceConfiguration" element={<InvoiceConfiguration />} />
+          <Route path="/discountConfig" element={<DiscountConfig />} />
+          <Route path="/discountConfig/addDiscount" element={<AddDiscount />} />
+          <Route path="/accountClosing" element={<AccountClosing />} />
+
 
         </Route>
 

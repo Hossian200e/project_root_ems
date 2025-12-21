@@ -156,9 +156,9 @@ const Sidebar = () => {
                       <li><Link to="/transactionTypes" className="menu-link">Transaction Types</Link></li>
                       <li><Link to="/transactionHead" className="menu-link">Transaction Head</Link></li>
                       <li><Link to="/feeCollectionTemplate" className="menu-link">Fee Collection Template</Link></li>
-                      <li><a href="#">Invoice Config.</a></li>
-                      <li><a href="#">Discount Config.</a></li>
-                      <li><a href="#">Account Closing</a></li>
+                      <li><Link to="/invoiceConfiguration" className="menu-link">Invoice Config.</Link></li>
+                      <li><Link to="/discountConfig" className="menu-link">Discount Config.</Link></li>
+                      <li><Link to="/accountClosing" className="menu-link">Account Closing</Link></li>
                       <li><a href="#">Fine</a></li>
                       <li><a href="#">Due (New)</a></li>
                     </ul>

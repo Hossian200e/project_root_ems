@@ -1,0 +1,130 @@
+.account-closing-page {
+  padding: 20px;
+  background: #f4f6f9;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+/* Header */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.page-header h2 {
+  margin: 0;
+}
+
+/* Header Actions */
+.header-actions button {
+  margin-left: 10px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.add-btn {
+  background: #10b981;
+  color: white;
+}
+
+.add-btn:hover {
+  background: #059669;
+}
+
+.export-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+.export-btn:hover {
+  background: #1d4ed8;
+}
+
+.print-btn {
+  background: #f59e0b;
+  color: white;
+}
+
+.print-btn:hover {
+  background: #b45309;
+}
+
+/* Table card */
+.account-table-card {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+}
+
+/* Table */
+.account-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.account-table th,
+.account-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+.account-table th {
+  background: #f3f4f6;
+  font-weight: 600;
+}
+
+.account-table tr:hover {
+  background: #f9fafb;
+}
+
+/* Totals row */
+.totals-row {
+  font-weight: 600;
+  background: #f3f4f6;
+}
+
+/* Actions */
+.close-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.close-btn:hover {
+  background: #b91c1c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .account-table th,
+  .account-table td {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .header-actions button {
+    margin-left: 5px;
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+}
