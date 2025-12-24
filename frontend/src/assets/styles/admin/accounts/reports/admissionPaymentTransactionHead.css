@@ -1,0 +1,118 @@
+.admission-summary-view-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+}
+
+.page-header h2 {
+  margin-bottom: 5px;
+  color: #1f2937;
+}
+
+.page-header p {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.page-header h3 {
+  font-weight: 500;
+  color: #111827;
+}
+
+/* ================= FILTER ================= */
+.filter-card {
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.filter-grid label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.filter-grid input,
+.filter-grid select {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+}
+
+/* ================= SUMMARY ================= */
+.summary-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  gap: 15px;
+}
+
+.summary-card img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.summary-info h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.summary-info h3 {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #4b5563;
+}
+
+.summary-info p {
+  font-weight: bold;
+  color: #111827;
+}
+
+/* ================= TABLE ================= */
+.table-wrapper {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.payment-summary-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.payment-summary-table th,
+.payment-summary-table td {
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.payment-summary-table th {
+  background: #f3f4f6;
+  font-weight: 600;
+}
+
+.payment-summary-table .amount {
+  text-align: right;
+}
+
+.no-data {
+  text-align: center;
+  color: #6b7280;
+  padding: 10px 0;
+}

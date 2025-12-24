@@ -1,0 +1,111 @@
+.form-fillup-page {
+  padding: 20px;
+  background: #f5f7fa;
+  font-family: Arial, sans-serif;
+}
+
+/* ================= FILTER ================= */
+.filter-card {
+  background: #ffffff;
+  padding: 20px;
+  max-width: 650px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filter-card h3 {
+  margin-bottom: 15px;
+  color: #1f2937;
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.filter-grid label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.filter-grid select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+}
+
+.primary-btn {
+  margin-top: 15px;
+  padding: 10px 16px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ================= HEADER ================= */
+.report-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.report-header img {
+  height: 60px;
+  margin-bottom: 6px;
+}
+
+.report-header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.report-header h3 {
+  margin: 4px 0 0;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+/* ================= TABLE ================= */
+.table-wrapper {
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.payment-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.payment-table th,
+.payment-table td {
+  border: 1px solid #e5e7eb;
+  padding: 8px;
+  text-align: center;
+}
+
+.payment-table th {
+  background: #f1f5f9;
+  font-weight: 600;
+}
+
+.amount {
+  text-align: right;
+  font-weight: 600;
+}
+
+/* ================= TOTAL ================= */
+.total-row {
+  background: #ecfeff;
+  font-weight: bold;
+}
+
+.total-row td {
+  border-top: 2px solid #000;
+}

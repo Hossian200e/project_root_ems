@@ -1,0 +1,101 @@
+.invoice-page {
+  padding: 20px;
+  background: #f4f6f9;
+  font-family: Arial, sans-serif;
+}
+
+/* ================= FILTER ================= */
+.filter-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.filter-grid label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.filter-grid select {
+  width: 100%;
+  padding: 6px;
+}
+
+.primary-btn {
+  padding: 10px 20px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ================= REPORT HEADER ================= */
+.report-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.report-header img {
+  height: 70px;
+}
+
+.report-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  font-size: 13px;
+}
+
+/* ================= ACTIONS ================= */
+.report-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.report-actions button {
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+/* ================= TABLE ================= */
+.table-scroll {
+  overflow-x: auto;
+}
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.invoice-table th,
+.invoice-table td {
+  border: 1px solid #ddd;
+  padding: 6px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.invoice-table th {
+  background: #f1f5f9;
+  font-weight: 700;
+}
+
+/* ================= PRINT ================= */
+@media print {
+  .report-actions,
+  .primary-btn {
+    display: none;
+  }
+}

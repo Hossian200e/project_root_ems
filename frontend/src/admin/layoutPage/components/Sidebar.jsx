@@ -159,26 +159,24 @@ const Sidebar = () => {
                       <li><Link to="/invoiceConfiguration" className="menu-link">Invoice Config.</Link></li>
                       <li><Link to="/discountConfig" className="menu-link">Discount Config.</Link></li>
                       <li><Link to="/accountClosing" className="menu-link">Account Closing</Link></li>
-                      <li><a href="#">Fine</a></li>
-                      <li><a href="#">Due (New)</a></li>
+                      <li><Link to="/studentFineConfig" className="menu-link">Student Fine Config.</Link></li>
+                      <li><Link to="/previousDue" className="menu-link">Previous Due</Link></li>
                     </ul>
                   )}
                 </li>
    <li className={`dropdown ${activeSubMenu === "Income" ? "open" : ""}`}>
         <div className="dropdown-label" onClick={() => toggleSubMenu("Income")}>
-           Collection
+           Income
           <span className="arrow"><i className="fa fa-chevron-right" /></span>
         </div>
 
         {activeSubMenu === "Income" && (
           <ul className="submenu sub-submenu">
-            <li><a href="#">Manual Fee Collection</a></li>
-            <li><a href="#">Others Income</a></li>
-            <li><a href="#">Unpaid Students</a></li>
-            <li><a href="#">Extra Fee Collection</a></li>
-            <li><a href="#">Bank Fee Collection</a></li>
-            <li><a href="#">Manual Fee Payment List</a></li>
-            <li><a href="#">Extra Fee Collection Request List</a></li>
+            <li><Link to="/manualFeeCollection" className="menu-link">Manual Fee Collection</Link></li>
+            <li><Link to="/otherIncome" className="menu-link">Other Income</Link></li>
+            <li><Link to="/extraFeeCollection" className="menu-link">Extra Fee Collection</Link></li>
+            <li><Link to="/bankFeeCollection" className="menu-link">Bank Fee Collection</Link></li>
+            <li><Link to="/addIncome" className="menu-link">Add Income</Link></li>
           </ul>
         )}
       </li>
@@ -191,8 +189,8 @@ const Sidebar = () => {
 
         {activeSubMenu === "Expenses" && (
           <ul className="submenu sub-submenu">
-            <li><a href="#">Teachers Salary</a></li>
-            <li><a href="#">Others Expenses</a></li>
+            <li><Link to="/teacherSalary" className="menu-link">Teacher Salary</Link></li>
+            <li><Link to="/otherExpenses" className="menu-link">Others Expenses</Link></li>
           </ul>
         )}
       </li>
@@ -205,16 +203,30 @@ const Sidebar = () => {
 
         {activeSubMenu === "Reports" && (
           <ul className="submenu sub-submenu">
-            <li><a href="#">Invoice List (New)</a></li>
-            <li><a href="#">Total Collection Reports</a></li>
-            <li><a href="#">Monthly Fee</a></li>
-            <li><a href="#">Monthly Balance Sheet</a></li>
-            <li><a href="#">Student Balance Sheet</a></li>
-            <li><a href="#">Class Wise Balance Sheet</a></li>
-            <li><a href="#">Admission Fee Student</a></li>
-            <li><a href="#">Apply For Admission</a></li>
-            <li><a href="#">Event Payment Summary</a></li>
-            <li><a href="#">Transaction Summary Report</a></li>
+            <li><Link to="/invoiceList" className="menu-link">Invoice List</Link></li>
+            <li><Link to="/invoiceListDetails" className="menu-link">Invoice List Details</Link></li>
+            <li><Link to="/invoiceListSameSection" className="menu-link">Invoice List Same Section</Link></li>
+            <li><Link to="/totalCollectionReport" className="menu-link">Total Collection Report</Link></li>
+            <li><Link to="/monthlyFeeReport" className="menu-link">Monthly Fee Report</Link></li>
+            <li><Link to="/manualPaymentList" className="menu-link">Manual Payment List</Link></li>
+            <li><Link to="/onlinePaymentList" className="menu-link">Online Payment List</Link></li>
+            <li><Link to="/headWiseMonthlyFeeReport" className="menu-link">Head Wise Monthly Fee Report</Link></li>
+            <li><Link to="/monthlyBalanceSheet" className="menu-link">Monthly Balance Sheet</Link></li>
+            <li><Link to="/studentBalanceSheet" className="menu-link">Student Balance Sheet</Link></li>
+            <li><Link to="/classWiseBalanceSheet" className="menu-link">Class Wise Balance Sheet</Link></li>
+            <li><Link to="/admissionFeeReport" className="menu-link">Admission Fee Report</Link></li>
+            <li><Link to="/formFillupPaymentReport" className="menu-link">Form Filup Payment Report</Link></li>
+            <li><Link to="/admissionPaymentReport" className="menu-link">Admission Payment Report</Link></li>
+            <li><Link to="/applyForAdmission" className="menu-link">Apply for Admission</Link></li>
+            <li><Link to="/eventPaymentSummary" className="menu-link">Event Payment Summary</Link></li>
+            <li><Link to="/transactionSummaryReport" className="menu-link">Transaction Summary Report</Link></li>
+            <li><Link to="/classWiseCategoryReport" className="menu-link">Class Wise Category Report</Link></li>
+            <li><Link to="/paidUnpaidReport" className="menu-link">Paid Unpaid Report</Link></li>
+            <li><Link to="/studentPaymentDetails" className="menu-link">Student Payment Details</Link></li>
+            <li><Link to="/studentPaymentHistories" className="menu-link">Student Payment Histories</Link></li>
+            <li><Link to="/studentFeeDiscountReport" className="menu-link">Discount Report</Link></li>
+            <li><Link to="/paidReport" className="menu-link">Paid Report</Link></li>
+            <li><Link to="/UnpaidReport" className="menu-link"> Unpaid Report</Link></li>
 
           </ul>
         )}

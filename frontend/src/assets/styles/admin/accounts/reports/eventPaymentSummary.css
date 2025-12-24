@@ -1,0 +1,99 @@
+.event-payment-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.page-header h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+.filter-section {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.filter-section label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+.filter-section input[type="date"] {
+  padding: 6px 10px;
+  margin-top: 5px;
+}
+
+.show-btn {
+  padding: 8px 16px;
+  background-color: #1d4ed8;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.show-btn:hover {
+  background-color: #2563eb;
+}
+
+.table-wrapper {
+  margin-top: 20px;
+}
+
+.payment-summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+.payment-summary-table th,
+.payment-summary-table td {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.payment-summary-table th {
+  background-color: #f3f4f6;
+}
+
+.payment-summary-table .center {
+  text-align: center;
+}
+
+.payment-summary-table .amount {
+  text-align: right;
+}
+
+.download-section {
+  margin-top: 10px;
+}
+
+.download-btn {
+  padding: 8px 16px;
+  background-color: #16a34a;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.download-btn:hover {
+  background-color: #22c55e;
+}
+.view-btn {
+  padding: 4px 8px;
+  background-color: #1d4ed8;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.view-btn:hover {
+  background-color: #2563eb;
+}

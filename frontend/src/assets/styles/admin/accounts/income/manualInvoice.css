@@ -1,0 +1,99 @@
+.manual-invoice-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+.invoice-actions {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.invoice-actions button {
+  padding: 8px 16px;
+  cursor: pointer;
+  background: #00cfff;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+}
+
+/* Columns layout: side by side */
+.invoice-columns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.invoice-column {
+  flex: 1 1 calc(25% - 10px); /* 4 columns */
+  border: 1px solid #333;
+  padding: 10px;
+  background: #fff;
+  box-sizing: border-box;
+  min-width: 250px;
+  page-break-inside: avoid;
+}
+
+.invoice-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.logo img {
+  display: inline-block;
+}
+
+.college-name {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.copy-name {
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.invoice-meta {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.invoice-meta p {
+  margin: 2px 0;
+}
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.invoice-table th,
+.invoice-table td {
+  border: 1px solid #333;
+  padding: 4px 6px;
+  text-align: left;
+}
+
+.signatures {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+@media print {
+  .invoice-actions {
+    display: none;
+  }
+  .invoice-columns {
+    flex-wrap: nowrap;
+  }
+  .invoice-column {
+    page-break-inside: avoid;
+    flex: 1 1 50%; /* Adjust for print */
+  }
+}

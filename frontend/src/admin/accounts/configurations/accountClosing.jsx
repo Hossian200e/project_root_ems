@@ -2,60 +2,52 @@ import React, { useState } from "react";
 import "../../../assets/styles/admin/accounts/configurations/accountClosing.css";
 
 const AccountClosing = () => {
-  // Dummy account closing data
   const [accounts, setAccounts] = useState([
-    {
-      month: "January 2025",
-      previousBalance: 15000,
-      totalIncome: 8000,
-      totalExpense: 5000,
-    },
-    {
-      month: "February 2025",
-      previousBalance: 18000,
-      totalIncome: 12000,
-      totalExpense: 7000,
-    },
-    {
-      month: "March 2025",
-      previousBalance: 23000,
-      totalIncome: 9000,
-      totalExpense: 4000,
-    },
+    { month: "January 2025", previousBalance: 15000, totalIncome: 8000, totalExpense: 5000 },
+    { month: "February 2025", previousBalance: 18000, totalIncome: 12000, totalExpense: 7000 },
+    { month: "March 2025", previousBalance: 23000, totalIncome: 9000, totalExpense: 4000 },
   ]);
 
-  // Calculate net balance
-  const calculateNet = (acc) =>
-    acc.previousBalance + acc.totalIncome - acc.totalExpense;
+  const [showModal, setShowModal] = useState(false);
+  const [selectedMonth, setSelectedMonth] = useState("");
+  const [selectedYear, setSelectedYear] = useState("");
 
-  // Add new month
-  const handleAddMonth = () => {
-    const month = prompt("Enter month (e.g., April 2025):");
-    if (month) {
-      setAccounts([
-        ...accounts,
-        {
-          month,
-          previousBalance: 0,
-          totalIncome: 0,
-          totalExpense: 0,
-        },
-      ]);
-    }
+  const months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+
+  const years = Array.from({ length: 10 }, (_, i) => 2025 + i); // 2025 to 2034
+
+  const calculateNet = (acc) => acc.previousBalance + acc.totalIncome - acc.totalExpense;
+
+  const handleAddMonth = () => setShowModal(true);
+
+  const handleSaveMonth = () => {
+    if (!selectedMonth || !selectedYear) return alert("Please select month and year");
+    const monthYear = `${selectedMonth} ${selectedYear}`;
+    setAccounts([
+      ...accounts,
+      { month: monthYear, previousBalance: 0, totalIncome: 0, totalExpense: 0 },
+    ]);
+    setSelectedMonth("");
+    setSelectedYear("");
+    setShowModal(false);
   };
 
-  // Close month
-  const handleCloseMonth = (month) => {
-    alert(`Account for ${month} has been closed (Demo).`);
+  const handleCancelMonth = () => {
+    setSelectedMonth("");
+    setSelectedYear("");
+    setShowModal(false);
   };
 
-  // Export CSV
+  const handleCloseMonth = (month) => alert(`Account for ${month} has been closed (Demo).`);
+
   const handleExportCSV = () => {
     let csv = "Month,Previous Balance,Total Income,Total Expense,Net Balance\n";
     accounts.forEach((acc) => {
       csv += `${acc.month},${acc.previousBalance},${acc.totalIncome},${acc.totalExpense},${calculateNet(acc)}\n`;
     });
-
     const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
@@ -66,12 +58,8 @@ const AccountClosing = () => {
     document.body.removeChild(link);
   };
 
-  // Print table
-  const handlePrint = () => {
-    window.print();
-  };
+  const handlePrint = () => window.print();
 
-  // Totals
   const totals = accounts.reduce(
     (acc, curr) => {
       acc.previousBalance += curr.previousBalance;
@@ -85,24 +73,44 @@ const AccountClosing = () => {
 
   return (
     <div className="account-closing-page">
-      <div className="breadcrumb">
-        Dashboard / Accounts / Account Closing
-      </div>
+      <div className="breadcrumb">Dashboard / Accounts / Account Closing</div>
 
       <div className="page-header">
         <h2>Account Closing</h2>
         <div className="header-actions">
-          <button className="add-btn" onClick={handleAddMonth}>
-            + Add New Month Closing
-          </button>
-          <button className="export-btn" onClick={handleExportCSV}>
-            Export CSV
-          </button>
-          <button className="print-btn" onClick={handlePrint}>
-            Print
-          </button>
+          <button className="add-btn" onClick={handleAddMonth}>+ Add New Month Closing</button>
+          <button className="export-btn" onClick={handleExportCSV}>Export CSV</button>
+          <button className="print-btn" onClick={handlePrint}>Print</button>
         </div>
       </div>
+
+      {/* Modal-like month/year selector */}
+      {showModal && (
+        <div className="month-modal">
+          <div className="month-modal-content">
+            <h4>Closing account of a month</h4>
+            <div className="month-year-select">
+              <label>Month</label>
+              <select value={selectedMonth} onChange={(e) => setSelectedMonth(e.target.value)}>
+                <option value="">Select</option>
+                {months.map((m, i) => <option key={i} value={m}>{m}</option>)}
+              </select>
+            </div>
+            <div className="month-year-select">
+              <label>Year</label>
+              <select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}>
+                <option value="">Select</option>
+                {years.map((y, i) => <option key={i} value={y}>{y}</option>)}
+              </select>
+            </div>
+            <div className="modal-buttons">
+              <button className="save-btn" onClick={handleSaveMonth}>Save</button>
+              <button className="cancel-btn" onClick={handleCancelMonth}>Cancel</button>
+            </div>
+            <div className="powered-text">Powered</div>
+          </div>
+        </div>
+      )}
 
       <div className="account-table-card">
         <table className="account-table">
@@ -125,17 +133,10 @@ const AccountClosing = () => {
                 <td>{acc.totalExpense.toFixed(2)}</td>
                 <td>{calculateNet(acc).toFixed(2)}</td>
                 <td>
-                  <button
-                    className="close-btn"
-                    onClick={() => handleCloseMonth(acc.month)}
-                  >
-                    Close Month
-                  </button>
+                  <button className="close-btn" onClick={() => handleCloseMonth(acc.month)}>Close Month</button>
                 </td>
               </tr>
             ))}
-
-            {/* Totals Row */}
             <tr className="totals-row">
               <td><strong>Totals</strong></td>
               <td>{totals.previousBalance.toFixed(2)}</td>

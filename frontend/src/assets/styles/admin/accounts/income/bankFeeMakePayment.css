@@ -1,0 +1,321 @@
+.bank-fee-page {
+  padding: 20px;
+  background: #f5f7fa;
+  font-family: Arial, sans-serif;
+}
+
+.page-title {
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+/* Student Info */
+.invoice-info {
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.info-row {
+  width: 200px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Table */
+.fee-table-container {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.fee-table {
+  width: max-content;
+  min-width: 100%;
+  border-collapse: collapse;
+}
+
+.fee-table th, .fee-table td {
+  border: 1px solid #e5e7eb;
+  padding: 8px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.fee-table th {
+  background: #f3f4f6;
+  font-weight: 600;
+}
+
+.fee-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.total-row {
+  background: #e0f2fe;
+}
+
+.grand-total-row {
+  background: #bae6fd;
+  font-weight: 600;
+}
+
+/* Payment button */
+.payment-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.make-payment-btn {
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.make-payment-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .fee-table, .fee-table thead, .fee-table tbody, .fee-table th, .fee-table td, .fee-table tr {
+    display: block;
+  }
+
+  .fee-table thead tr {
+    display: none;
+  }
+
+  .fee-table tbody tr {
+    margin-bottom: 15px;
+    background: #f9fafb;
+    border-radius: 6px;
+    padding: 10px;
+  }
+
+  .fee-table td {
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .fee-table td::before {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-weight: 600;
+    white-space: nowrap;
+    content: attr(data-label);
+  }
+
+  .fee-table td:last-child {
+    border-bottom: 0;
+  }
+}
+.bank-fee-page {
+  padding: 20px;
+  background: #f5f7fa;
+  font-family: Arial, sans-serif;
+}
+
+.page-title {
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+.student-info-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: "Arial", sans-serif;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 8px;
+}
+
+.student-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #374151;
+  padding: 8px 12px;
+  background: #f9fafb;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.info-item:hover {
+  background: #f3f4f6;
+}
+
+.label {
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.value {
+  font-weight: 600;
+  color: #111827;
+  text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .student-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-item {
+    justify-content: space-between;
+    font-size: 13px;
+  }
+}
+
+/* Table */
+.fee-table-container {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.fee-table {
+  width: max-content;
+  min-width: 100%;
+  border-collapse: collapse;
+}
+
+.fee-table th, .fee-table td {
+  border: 1px solid #e5e7eb;
+  padding: 8px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.fee-table th {
+  background: #f3f4f6;
+  font-weight: 600;
+}
+
+.fee-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.total-row {
+  background: #e0f2fe;
+}
+
+.grand-total-row {
+  background: #bae6fd;
+  font-weight: 600;
+}
+
+/* Editable input */
+.fee-table input[type="number"] {
+  width: 80px;
+  text-align: center;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 3px;
+}
+
+/* Remove button */
+.remove-btn {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.remove-btn:hover {
+  background: #b91c1c;
+}
+
+/* Payment button */
+.payment-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.make-payment-btn {
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.make-payment-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .fee-table, .fee-table thead, .fee-table tbody, .fee-table th, .fee-table td, .fee-table tr {
+    display: block;
+  }
+
+  .fee-table thead tr {
+    display: none;
+  }
+
+  .fee-table tbody tr {
+    margin-bottom: 15px;
+    background: #f9fafb;
+    border-radius: 6px;
+    padding: 10px;
+  }
+
+  .fee-table td {
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .fee-table td::before {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-weight: 600;
+    white-space: nowrap;
+    content: attr(data-label);
+  }
+
+  .fee-table td:last-child {
+    border-bottom: 0;
+  }
+}

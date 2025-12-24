@@ -87,6 +87,52 @@ import InvoiceConfiguration from "./admin/accounts/configurations/invoiceConfigu
 import DiscountConfig from "./admin/accounts/configurations/discountConfig";
 import AddDiscount  from "./admin/accounts/configurations/addDiscount";
 import AccountClosing  from "./admin/accounts/configurations/accountClosing";
+import StudentFineConfig  from "./admin/accounts/configurations/studentFineConfig";
+import PreviousDue  from "./admin/accounts/configurations/previousDue";
+
+import ManualFeeCollection  from "./admin/accounts/income/manualFeeCollection";
+import ManualFeeMakePayment  from "./admin/accounts/income/manualFeeMakePayment";
+import ManualInvoice  from "./admin/accounts/income/manualInvoice";
+import BankFeeCollection  from "./admin/accounts/income/bankFeeCollection";
+import BankFeeMakePayment  from "./admin/accounts/income/bankFeeMakePayment";
+import BankInvoice  from "./admin/accounts/income/bankInvoice";
+import OtherIncome  from "./admin/accounts/income/otherIncome";
+import OtherIncomeInvoice   from "./admin/accounts/income/otherIncomeInvoice";
+import ExtraFeeCollection   from "./admin/accounts/income/extraFeeCollection";
+import ExtraFeeInvoice from "./admin/accounts/income/extraFeeInvoice";
+import AddIncome from "./admin/accounts/income/addIncome";
+
+import TeacherSalary from "./admin/accounts/expenses/teacherSalary";
+import OtherExpenses from "./admin/accounts/expenses/otherExpenses";
+
+import InvoiceList from "./admin/accounts/reports/invoiceList";
+import InvoiceListDetails from "./admin/accounts/reports/invoiceListDetails";
+import InvoiceListSameSection from "./admin/accounts/reports/invoiceListSameSection";
+import TotalCollectionReport from "./admin/accounts/reports/totalCollectionReport";
+import MonthlyFeeReport from "./admin/accounts/reports/monthlyFeeReport";
+import ManualPaymentList from "./admin/accounts/reports/manualPaymentList";
+import OnlinePaymentList from "./admin/accounts/reports/onlinePaymentList";
+import HeadWiseMonthlyFeeReport from "./admin/accounts/reports/headWiseMonthlyFeeReport";
+import MonthlyBalanceSheet from "./admin/accounts/reports/monthlyBalanceSheet";
+import StudentBalanceSheet from "./admin/accounts/reports/studentBalanceSheet";
+import ClassWiseBalanceSheet from "./admin/accounts/reports/classWiseBalanceSheet";
+import AdmissionFeeReport from "./admin/accounts/reports/admissionFeeReport";
+import FormFillupPaymentReport from "./admin/accounts/reports/formFillupPaymentReport";
+import AdmissionPaymentReport from "./admin/accounts/reports/admissionPaymentReport";
+import AdmissionPaymentSummary from "./admin/accounts/reports/admissionPaymentSummary";
+import AdmissionPaymentTransactionHead from "./admin/accounts/reports/admissionPaymentTransactionHead";
+import AdmissionPaymentSummaryView  from "./admin/accounts/reports/admissionPaymentSummaryView";
+import AdmissionPaymentSummaryTotalView  from "./admin/accounts/reports/admissionPaymentSummaryTotalView";
+import ApplyForAdmission  from "./admin/accounts/reports/applyForAdmission";
+import EventPaymentSummary  from "./admin/accounts/reports/eventPaymentSummary";
+import TransactionSummaryReport  from "./admin/accounts/reports/transactionSummaryReport";
+import ClassWiseCategoryReport  from "./admin/accounts/reports/classWiseCategoryReport";
+import PaidUnpaidReport  from "./admin/accounts/reports/paidUnpaidReport";
+import StudentPaymentDetails  from "./admin/accounts/reports/studentPaymentDetails";
+import StudentPaymentHistories  from "./admin/accounts/reports/studentPaymentHistories";
+import StudentFeeDiscountReport  from "./admin/accounts/reports/studentFeeDiscountReport";
+import PaidReport  from "./admin/accounts/reports/paidReport";
+import UnpaidReport  from "./admin/accounts/reports/UnpaidReport";
 
 
 function App() {
@@ -188,8 +234,52 @@ function App() {
           <Route path="/discountConfig" element={<DiscountConfig />} />
           <Route path="/discountConfig/addDiscount" element={<AddDiscount />} />
           <Route path="/accountClosing" element={<AccountClosing />} />
+          <Route path="/studentFineConfig" element={<StudentFineConfig />} />
+          <Route path="/previousDue" element={<PreviousDue />} />
 
+          <Route path="/manualFeeCollection" element={<ManualFeeCollection />} />
+          <Route path="/manualFeeCollection/makePayment" element={<ManualFeeMakePayment />} />
+          <Route path="/manualFeeCollection/incoice" element={<ManualInvoice />} />
+          <Route path="/bankFeeCollection" element={<BankFeeCollection />} />
+          <Route path="/bankFeeCollection/makePayment" element={<BankFeeMakePayment />} />
+          <Route path="/bankFeeCollection/incoice" element={<BankInvoice />} />
+          <Route path="/otherIncome" element={<OtherIncome />} />
+          <Route path="/otherIncome/invoice" element={<OtherIncomeInvoice />} />
+          <Route path="/extraFeeCollection" element={<ExtraFeeCollection />} />
+          <Route path="/extraFeeCollection/incoice" element={<ExtraFeeInvoice />} />
+          <Route path="/addIncome" element={<AddIncome />} />
 
+          <Route path="/teacherSalary" element={<TeacherSalary />} />
+          <Route path="/otherExpenses" element={<OtherExpenses />} />
+
+          <Route path="/invoiceList" element={<InvoiceList />} />
+          <Route path="/invoiceListDetails" element={<InvoiceListDetails />} />
+          <Route path="/invoiceListSameSection" element={<InvoiceListSameSection />} />
+          <Route path="/totalCollectionReport" element={<TotalCollectionReport />} />
+          <Route path="/monthlyFeeReport" element={<MonthlyFeeReport />} />
+          <Route path="/manualPaymentList" element={<ManualPaymentList />} />
+          <Route path="/onlinePaymentList" element={<OnlinePaymentList />} />
+          <Route path="/headWiseMonthlyFeeReport" element={<HeadWiseMonthlyFeeReport />} />
+          <Route path="/monthlyBalanceSheet" element={<MonthlyBalanceSheet />} />
+          <Route path="/studentBalanceSheet" element={<StudentBalanceSheet />} />
+          <Route path="/classWiseBalanceSheet" element={<ClassWiseBalanceSheet />} />
+          <Route path="/admissionFeeReport" element={<AdmissionFeeReport />} />
+          <Route path="/formFillupPaymentReport" element={<FormFillupPaymentReport />} />
+          <Route path="/admissionPaymentReport" element={<AdmissionPaymentReport />} />
+          <Route path="/admissionPaymentReport/paymentSummary/:id" element={<AdmissionPaymentSummary />} />
+          <Route path="/admissionPaymentReport/transactionHead/:id" element={<AdmissionPaymentTransactionHead />} />
+          <Route path="/admissionPaymentReport/paymentSummary/view/:id" element={<AdmissionPaymentSummaryView />} />
+          <Route path="/admissionPaymentReport/paymentSummary/totalview/:id" element={<AdmissionPaymentSummaryTotalView />} />
+          <Route path="/applyForAdmission" element={<ApplyForAdmission />} />
+          <Route path="/eventPaymentSummary" element={<EventPaymentSummary />} />
+          <Route path="/transactionSummaryReport" element={<TransactionSummaryReport />} />
+          <Route path="/classWiseCategoryReport" element={<ClassWiseCategoryReport />} />
+          <Route path="/paidUnpaidReport" element={<PaidUnpaidReport />} />
+          <Route path="/studentPaymentDetails" element={<StudentPaymentDetails />} />
+          <Route path="/studentPaymentHistories" element={<StudentPaymentHistories />} />
+          <Route path="/studentFeeDiscountReport" element={<StudentFeeDiscountReport />} />
+          <Route path="/paidReport" element={<PaidReport />} />
+          <Route path="/unpaidReport" element={<UnpaidReport />} />
         </Route>
 
         {/* Student routes */}

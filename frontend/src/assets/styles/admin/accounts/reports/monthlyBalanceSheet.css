@@ -1,0 +1,90 @@
+.monthly-balance-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+  color: #1f2937;
+}
+
+.filter-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.show-btn {
+  padding: 8px 16px;
+  background-color: #1f2937;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.report-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.report-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.action-buttons {
+  margin-bottom: 20px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+th, td {
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  text-align: right;
+}
+
+th:first-child, td:first-child {
+  text-align: left;
+}
+
+/* ================= TREE COLUMN ================= */
+.transaction-head-cell {
+  padding: 10px;
+}
+
+.parent-child-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.parent-name {
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+.child-items {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.child-name {
+  font-weight: 500;
+  margin-top: 2px;
+}

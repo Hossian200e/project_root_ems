@@ -1,0 +1,109 @@
+.transaction-summary-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.filter-section label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.filter-section select,
+.filter-section input {
+  padding: 5px;
+  margin-top: 5px;
+  min-width: 150px;
+}
+
+.show-btn {
+  padding: 8px 15px;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.show-btn:hover {
+  background-color: #084298;
+}
+
+.report-section {
+  margin-top: 30px;
+}
+
+.report-header {
+  text-align: center;
+}
+
+.report-logo {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+.table-wrapper {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.summary-table th,
+.summary-table td {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.summary-table th {
+  background-color: #f0f0f0;
+}
+
+.summary-table .center {
+  text-align: center;
+}
+
+.summary-table .amount {
+  text-align: right;
+}
+
+.action-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.print-btn,
+.download-btn {
+  padding: 8px 15px;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.print-btn {
+  background-color: #198754;
+}
+
+.print-btn:hover {
+  background-color: #145c32;
+}
+
+.download-btn {
+  background-color: #0d6efd;
+}
+
+.download-btn:hover {
+  background-color: #084298;
+}

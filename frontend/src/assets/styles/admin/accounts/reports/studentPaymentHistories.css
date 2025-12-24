@@ -1,0 +1,133 @@
+.payment-history-page {
+  padding: 20px;
+  background: #f6f8fb;
+  font-family: Arial, sans-serif;
+}
+
+/* ================= FILTER ================= */
+.filter-box {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.filter-box input,
+.filter-box select {
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+}
+
+.filter-box button {
+  grid-column: span 4;
+  padding: 10px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ================= REPORT ================= */
+.report-box {
+  margin-top: 20px;
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.print-btn-area {
+  text-align: right;
+}
+
+.print-btn-area button {
+  padding: 6px 14px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+/* ================= HEADER ================= */
+.report-header {
+  text-align: center;
+}
+
+.student-info {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.due-amount span {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+/* ================= TABLE ================= */
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.history-table th,
+.history-table td {
+  border: 1px solid #e5e7eb;
+  padding: 8px;
+  text-align: center;
+}
+
+.history-table th {
+  background: #f1f5f9;
+}
+
+.total-row {
+  background: #e0f2fe;
+  font-weight: bold;
+}
+
+/* ================= ACTION ================= */
+.view-btn {
+  padding: 4px 10px;
+  background: #e0f2fe;
+  border: 1px solid #38bdf8;
+  color: #0369a1;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ================= MODAL ================= */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 350px;
+}
+
+.modal h3 {
+  margin-bottom: 10px;
+}
+
+.modal button {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

@@ -1,0 +1,135 @@
+.invoice-list-details-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+.invoice-list-details-page h2 {
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+/* Filter Section */
+.filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.form-group select,
+.form-group input {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.error {
+  color: red;
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+.search-btn {
+  background: #00cfff;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.search-btn:hover {
+  background: #00a2cc;
+}
+
+/* Results Section */
+.results-section {
+  background: #fff;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.invoice-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.invoice-header .logo {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+.actions {
+  margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.actions button {
+  padding: 6px 12px;
+  background: #00cfff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.actions button:hover {
+  background: #00a2cc;
+}
+
+/* Student Group Table */
+.student-group {
+  margin-bottom: 20px;
+}
+
+.student-group table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.student-group th,
+.student-group td {
+  border: 1px solid #ccc;
+  padding: 5px;
+  text-align: center;
+}
+
+.student-group th {
+  background: #00cfff;
+  color: #fff;
+}
+
+.student-group tbody tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+.student-group tbody tr:hover {
+  background: #e6f7ff;
+}
+
+.grand-total {
+  text-align: right;
+  font-weight: bold;
+  margin-top: 10px;
+}

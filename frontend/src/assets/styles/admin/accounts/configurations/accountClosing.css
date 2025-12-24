@@ -128,3 +128,67 @@
     padding: 5px 10px;
   }
 }
+.month-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.month-modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 250px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.month-year-select {
+  margin: 10px 0;
+}
+
+.month-year-select label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.month-year-select select {
+  width: 100%;
+  padding: 5px;
+}
+
+.modal-buttons {
+  margin-top: 15px;
+}
+
+.modal-buttons button {
+  margin: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.save-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.powered-text {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #888;
+}

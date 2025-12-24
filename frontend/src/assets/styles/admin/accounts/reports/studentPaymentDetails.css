@@ -1,0 +1,77 @@
+.student-payment-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #f9fafb;
+}
+
+.filter-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-section select {
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.filter-section button {
+  padding: 6px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.report-section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.report-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.report-header .logo {
+  width: 80px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 6px;
+  text-align: center;
+}
+
+th {
+  background-color: #a0c4ff; /* Light blue header */
+  color: #000;
+}
+
+.full-payment {
+  background-color: #b7eb8f; /* Light green */
+  color: #000;
+}
+
+.partial-payment {
+  background-color: #ffd591; /* Light orange */
+  color: #000;
+}
+
+.no-payment {
+  background-color: #ffa8a8; /* Light red/pink */
+  color: #000;
+}

@@ -1,0 +1,90 @@
+
+
+/* Main content area */
+.main-content {
+  background: #f5f7fa;
+  overflow-x: hidden; /* prevent horizontal scroll on the page */
+}
+
+/* Monthly Fees Table */
+.monthly-fees {
+  background: #fff;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  overflow-x: auto; /* enable horizontal scroll only for table */
+}
+
+.monthly-fees table {
+  border-collapse: collapse;
+  width: max-content; /* table can be wider than container */
+  min-width: 100%;
+  font-size: 13px;
+}
+
+.monthly-fees th,
+.monthly-fees td {
+  border: 1px solid #e5e7eb;
+  padding: 8px;
+  text-align: center;
+}
+
+.monthly-fees th {
+  background: #f3f4f6;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Hover row effect */
+.monthly-fees tbody tr:hover {
+  background: #f9fafb;
+}
+
+/* Responsive: small screens (stacked table) */
+@media (max-width: 768px) {
+  .monthly-fees table,
+  .monthly-fees thead,
+  .monthly-fees tbody,
+  .monthly-fees th,
+  .monthly-fees td,
+  .monthly-fees tr {
+    display: block;
+  }
+
+  .monthly-fees thead tr {
+    display: none;
+  }
+
+  .monthly-fees tbody tr {
+    margin-bottom: 15px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 10px;
+    background: #f9fafb;
+  }
+
+  .monthly-fees td {
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .monthly-fees td::before {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    width: 45%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    font-weight: 600;
+    content: attr(data-label);
+    color: #374151;
+  }
+
+  .monthly-fees td:last-child {
+    border-bottom: 0;
+  }
+}
